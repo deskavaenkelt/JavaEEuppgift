@@ -1,0 +1,28 @@
+Väder/aktivitetapp
+
+fiske
+uteservering
+sola/bada
+volyboll
+vindsurfa
+
+molnigt/duggregn/lite vind
+vindstilla/uppehåll
+varmt/soligt
+uppehåll/ingen blåst
+vind/uppehåll
+
+Se datum/tid man vill gör en aktivitet
+Närmsta fem dagarna
+Visa var det är lämpligast utifrån lämpligt väder
+
+Hämta api från open wether
+5 platser/aktivitet
+
+visa de fem bästa för de fem närmsta dagarna
+visa hur populärt något är
+meetup vid en aktivitet - syns om någon valt det
+
+openwethermap.org json-format
+
+meetup tid från/till vilken aktivitet var
