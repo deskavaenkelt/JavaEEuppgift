@@ -1,0 +1,53 @@
+Create new JavaEE project
+
+1. Starta MySQL
+
+2. Skapa databas & tabeller
+
+3. Skapa en datasource i wildfly
+- Om ni inte anslutit MySQL drivern gör det under Dependencies
+
+4. Skapa nytt JavaEE projekt
+	Välj
+		WebbApplication
+		CDI
+		Hybernate
+		Java Persistace
+			Välj Hibernate
+		RESTful
+			Hitta jar-filen
+
+5. Skapa en databaskoppling i IntelliJ
+
+6. Byt namn på er PersistanceUnit
+
+7. Högerklicka på PU och anslut datasource
+
+8. Uppdataera Persistance.xml
+	<jta-data-source>java:/Namn på ds i wildfly</jta-data-source>
+		Ändra properties
+			Bort med 4 första
+			Lägg till dialect
+
+9. Skapa nytt package för models
+
+10. Högerklicka på er PU
+	Välj new Entity
+	Ange namn
+	Ange package till models
+Gör detta för alla era entiteter
+
+11. Skriv era entiteter
+
+12. Skapa repositoryklasser
+
+13. Skapa en beans.xml i META-INF i SRC mappen
+
+14. Skapa erat API
+
+15. Högerklicka på erat projekt och lägg till Module
+	Välj Maven
+
+16. Lägg till era dependencies i pom.xml och importera dessa
+
+17. Ha kul!
