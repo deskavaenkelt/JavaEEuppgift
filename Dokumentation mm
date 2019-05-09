@@ -50,7 +50,6 @@ Vilka tjänster vill vi ha utförda?
 		gust - vindhastighet m/s
 
 Vad vill jag - CRUD 
-	CREATE
 	READ
 Vilket data vill jag ha? (<--Styr vilket repo)
 	Vilken given plats det vid en given tidpunkt (från nu tom fem dagar framåt) är bäst väder för en given aktivitet
