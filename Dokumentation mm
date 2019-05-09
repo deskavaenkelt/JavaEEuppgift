@@ -45,7 +45,8 @@ Drivs fram av
 Vilka tjänster vill vi ha utförda?
 	Ta in väderdata från SMHI 
 		Msl - hPa(lufttryck)
-		r - molnighet%
+		octas - molnighet 0-9
+		r - luftfuktighet %
 		t - celsius temp
 		gust - vindhastighet m/s
 
