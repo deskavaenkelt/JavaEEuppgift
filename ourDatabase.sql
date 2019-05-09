@@ -6,8 +6,8 @@ USE vaderAktivitet;
 
 CREATE TABLE plats (
     platsId        INT PRIMARY KEY AUTO_INCREMENT,
-    platsNamn      VARCHAR(25) NOT NULL,
-    platsLongtitud DEC         NOT NULL,
+    platsName      VARCHAR(25) NOT NULL,
+    platsLongitude DEC         NOT NULL,
     platsLatitude  DEC         NOT NULL
 );
 
@@ -48,3 +48,10 @@ CREATE TABLE aktivitetVader (
 );
 
 SHOW TABLES;
+
+INSERT INTO plats(platsName, platsLongitude, platsLatitude) VALUES ("Göteborg", 11.85, 57.66),
+                                                                ("Kungsbacka", 11.96, 57.49),
+                                                                ("Åsa", 12.07, 57.33),
+                                                                ("Varberg", 12.25, 57.10),
+                                                                ("Falkenberg", 12.50, 56.88);
+
