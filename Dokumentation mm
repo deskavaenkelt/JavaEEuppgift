@@ -8,7 +8,7 @@ Name:	Msl - hPa(lufttryck)
 		gust - vindhastighet m/s
 
 Utifrån teckning på tavlan
-API	--> 	AffärsLogik	--> 	Models	--> 	DAO Repositorys	<-->	RDBS
+API	--> 	AffärsLogik	--> 	Models	--> 	DAO Repositoris	<-->	RDBS
 				----------------------------------^
 
 Vilka tjänster vill vi ha utförda? - API
@@ -24,7 +24,7 @@ Hur gör vi det bäst i OOP <---> Vilket data skall vi representera?
 Affärslogik --> DAO Repositories
 			Vad vill jag, CRUD
 			Vilket data vill jag ha? <-- Styr vilket repo
-			Vilket data har jag för att åstakomma detta?
+			Vilket data har jag för att åstadkomma detta?
 
 Vårt projekt:
 Vilket data ska vi representera? 
@@ -53,8 +53,8 @@ Vad vill jag - CRUD
 	CREATE
 	READ
 Vilket data vill jag ha? (<--Styr vilket repo)
-	Vilken given plats det vid en given tidpunkt (från nu tom fem dagar frammåt) är bäst väder för en given aktivitet
+	Vilken given plats det vid en given tidpunkt (från nu tom fem dagar framåt) är bäst väder för en given aktivitet
 
-Vilket data har jag för att åstakomma detta?
+Vilket data har jag för att åstadkomma detta?
 	API med väderinfo från SMHI
 	Tabeller i databasen med värden för varje aktivitet och plats
