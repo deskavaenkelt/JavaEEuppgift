@@ -1,10 +1,14 @@
 SHOW DATABASES;
 
-CREATE DATABASE vaderAktivitet;
-DROP DATABASE vaderAktivitet;
 
+
+-- Create databases
+CREATE DATABASE vaderAktivitet;
 USE vaderAktivitet;
 
+
+
+-- Create tables
 CREATE TABLE plats (
     platsId        INT PRIMARY KEY AUTO_INCREMENT,
     platsName      VARCHAR(25) NOT NULL,
@@ -38,7 +42,6 @@ CREATE TABLE vader (
     vaderMolnighetMax INT NOT NULL
 );
 
-
 CREATE TABLE aktivitetVader (
     aktivitetVaderId  INT PRIMARY KEY AUTO_INCREMENT,
     aktivitetVaderAId INT NOT NULL,
@@ -48,13 +51,19 @@ CREATE TABLE aktivitetVader (
     FOREIGN KEY (aktivitetVaderVId) REFERENCES vader (vaderId)
 );
 
+
+
+-- Fill the tables with data
 SHOW TABLES;
 
-INSERT INTO plats(platsName, platsLongitude, platsLatitude) VALUES ('Göteborg', '11.85', '57.66'),
-                                                                ('Kungsbacka', '11.96', '57.49'),
-                                                                ('Åsa', '12.07', '57.33'),
-                                                                ('Varberg', '12.25', '57.10'),
-                                                                ('Falkenberg', '12.50', '56.88');
+-- Insert the koordinates for the places
+INSERT INTO plats(platsName, platsLongitude, platsLatitude)
+VALUES ('Göteborg', '11.85', '57.66'),
+       ('Kungsbacka', '11.96', '57.49'),
+       ('Åsa', '12.07', '57.33'),
+       ('Varberg', '12.25', '57.10'),
+       ('Falkenberg', '12.50', '56.88');
+
 
 DESCRIBE plats;
 

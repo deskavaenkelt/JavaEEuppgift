@@ -20,7 +20,7 @@ public class Vader {
     private Integer vaderMolnighetMax;
 
 
-    
+
 
     /* Getter och Setters //dsve =P */
     public Integer getVaderId() {
