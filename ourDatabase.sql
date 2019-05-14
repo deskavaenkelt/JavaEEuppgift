@@ -1,6 +1,7 @@
 SHOW DATABASES;
 
 CREATE DATABASE vaderAktivitet;
+DROP DATABASE vaderAktivitet;
 
 USE vaderAktivitet;
 
@@ -54,4 +55,9 @@ INSERT INTO plats(platsName, platsLongitude, platsLatitude) VALUES ('Göteborg',
                                                                 ('Åsa', '12.07', '57.33'),
                                                                 ('Varberg', '12.25', '57.10'),
                                                                 ('Falkenberg', '12.50', '56.88');
+
+DESCRIBE plats;
+
+SELECT *
+FROM plats;
 
