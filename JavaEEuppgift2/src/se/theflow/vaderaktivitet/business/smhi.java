@@ -1,3 +1,4 @@
+/*
 package se.theflow.vaderaktivitet.business;
 
 import java.net.URL;
@@ -10,3 +11,4 @@ public class smhi {
         }
     }
 }
+*/

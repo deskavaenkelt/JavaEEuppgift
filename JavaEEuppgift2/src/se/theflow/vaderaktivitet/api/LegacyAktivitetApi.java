@@ -10,10 +10,10 @@ import java.util.List;
 
 @ApplicationPath("/aktivitetapi")
 @Path("/v1.0")
-public class AktivitetApi extends Application {
+public class LegacyAktivitetApi extends Application {
 
-    @GET
+    /*@GET
     @Path("/aktivitet")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Activity>
+    public List<Activity>*/
 }

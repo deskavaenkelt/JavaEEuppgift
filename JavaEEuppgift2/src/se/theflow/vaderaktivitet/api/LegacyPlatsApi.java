@@ -1,4 +1,4 @@
 package se.theflow.vaderaktivitet.api;
 
-public class PlatsAktivitetApi {
+public class LegacyPlatsApi {
 }

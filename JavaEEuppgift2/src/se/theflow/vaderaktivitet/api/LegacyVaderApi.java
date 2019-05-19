@@ -1,4 +1,4 @@
 package se.theflow.vaderaktivitet.api;
 
-public class VaderApi {
+public class LegacyVaderApi {
 }
