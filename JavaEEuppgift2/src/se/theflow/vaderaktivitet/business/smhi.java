@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLOutput;
+import java.util.Arrays;
+
 import org.json.JSONObject;
 
 public class smhi {
@@ -32,6 +34,11 @@ public class smhi {
             JSONObject myResponse = new JSONObject(response.toString());
 
             System.out.println(myResponse);
+            String preSplit = myResponse.toString();
+            String [] arrOfStr = preSplit.split("validTime");
+            System.out.println(Arrays.toString(arrOfStr));
+
+
         }
         catch(Exception e){
             System.out.println(e);
