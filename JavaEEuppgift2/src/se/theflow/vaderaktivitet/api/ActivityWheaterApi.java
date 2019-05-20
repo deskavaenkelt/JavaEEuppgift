@@ -1,4 +1,4 @@
-package se.theflow.vaderaktivitet.api;
+/*package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
@@ -26,3 +26,4 @@ public class ActivityWheaterApi extends Application {
     }
 }
 
+*/
