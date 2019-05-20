@@ -29,7 +29,9 @@ public class smhi {
             }
             in.close();
 
-            JSONObject
+            JSONObject myResponse = new JSONObject(response.toString());
+
+            System.out.println(myResponse);
         }
         catch(Exception e){
             System.out.println(e);
