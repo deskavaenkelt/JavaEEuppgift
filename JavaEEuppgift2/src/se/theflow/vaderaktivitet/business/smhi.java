@@ -33,10 +33,12 @@ public class smhi {
 
             JSONObject myResponse = new JSONObject(response.toString());
 
-            System.out.println(myResponse);
+            //System.out.println(myResponse);
             String preSplit = myResponse.toString();
-            String [] arrOfStr = preSplit.split("validTime");
-            System.out.println(Arrays.toString(arrOfStr));
+            String [] arrOfStr = preSplit.split("\\{\"validTime\":");
+            //System.out.println(Arrays.toString(arrOfStr));
+            String tempString = arrOfStr[1];
+            System.out.println(tempString);
 
 
         }
