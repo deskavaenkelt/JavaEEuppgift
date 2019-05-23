@@ -1,6 +1,6 @@
 package se.theflow.vaderaktivitet.api;
 
-import se.theflow.vaderaktivitet.business.RequestsFromApi;
+//import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.GET;
