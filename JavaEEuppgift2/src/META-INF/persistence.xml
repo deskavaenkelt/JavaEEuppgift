@@ -4,11 +4,11 @@
     <persistence-unit name="VaderAktivitetPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/MySqVAlDS</jta-data-source>
-        <class>se.theflow.vaderaktivitet.models.Aktivitet</class>
+        <class>se.theflow.vaderaktivitet.models.Activity</class>
         <class>se.theflow.vaderaktivitet.models.AktivitetVader</class>
         <class>se.theflow.vaderaktivitet.models.PlatsAktivitet</class>
         <class>se.theflow.vaderaktivitet.models.Plats</class>
-        <class>se.theflow.vaderaktivitet.models.Vader</class>
+        <class>se.theflow.vaderaktivitet.models.WeatherOptimal</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.archive.autodetection" value="class"/>
