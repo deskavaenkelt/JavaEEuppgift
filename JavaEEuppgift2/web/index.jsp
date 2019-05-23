@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Aktivitets väder api</title>
   </head>
   <body>
-  $END$
+  <article>
+    <h1>Aktivitetsväderapi v1.0</h1>
+    <p>Startsida som bara visar att servern är igång</p>
+    <p>Sofia löser detta.</p>
+  </article>
   </body>
 </html>
