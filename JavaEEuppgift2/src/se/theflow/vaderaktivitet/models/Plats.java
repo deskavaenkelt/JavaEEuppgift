@@ -3,18 +3,18 @@ package se.theflow.vaderaktivitet.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "plats")
+@Table(name = "place")
 public class Plats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer platsId;
+    private Integer id;
 
-    private String platsNamn;
+    private String name;
 
-    private float platsLongitude;
+    private float longitude;
 
-    private float platsLatitude;
+    private float latitude;
 
 
 
