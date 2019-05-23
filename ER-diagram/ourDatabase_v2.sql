@@ -10,42 +10,42 @@ USE weatherActivityApi;
 
 -- Create tables
 CREATE TABLE place (
-    placeId        INT PRIMARY KEY AUTO_INCREMENT,
-    placeName      VARCHAR(25) NOT NULL,
-    placeLongitude VARCHAR(20) NOT NULL,
-    placeLatitude  VARCHAR(20) NOT NULL
+    id        INT PRIMARY KEY AUTO_INCREMENT,
+    name      VARCHAR(25) NOT NULL,
+    longitude VARCHAR(20) NOT NULL,
+    latitude  VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE activity (
-    activityId   INT PRIMARY KEY AUTO_INCREMENT,
-    activityName VARCHAR(50) NOT NULL
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE activityPlace (
-    activityPlaceId  INT PRIMARY KEY AUTO_INCREMENT,
-    activityPlacePId INT NOT NULL,
-    activityPlaceAId INT NOT NULL,
+    id  INT PRIMARY KEY AUTO_INCREMENT,
+    pId INT NOT NULL,
+    aId INT NOT NULL,
 
-    FOREIGN KEY (activityPlaceId) REFERENCES place (placeId),
-    FOREIGN KEY (activityPlaceId) REFERENCES activity (activityId)
+    FOREIGN KEY (pId) REFERENCES place (id),
+    FOREIGN KEY (aId) REFERENCES activity (id)
 );
 
-CREATE TABLE weather (
-    weatherId           INT PRIMARY KEY AUTO_INCREMENT,
-    weatherTemperature  INT NOT NULL,
+CREATE TABLE weatherOptimal (
+    id           INT PRIMARY KEY AUTO_INCREMENT,
 
-    weatherRainfall     INT NOT NULL,
-
-    weatherCloudy       INT NOT NULL
+    cloudy       INT NOT NULL,
+    rainfall     INT NOT NULL,
+    temperature  INT NOT NULL,
+    wind         INT NOT NULL
 );
 
 CREATE TABLE activityWeather (
-    activityWeatherId  INT PRIMARY KEY AUTO_INCREMENT,
-    activityWeatherAId INT NOT NULL,
-    activityWeatherVId INT NOT NULL,
+    id  INT PRIMARY KEY AUTO_INCREMENT,
+    aId INT NOT NULL,
+    vId INT NOT NULL,
 
-    FOREIGN KEY (activityWeatherAId) REFERENCES activity (activityId),
-    FOREIGN KEY (activityWeatherVId) REFERENCES weather (weatherId)
+    FOREIGN KEY (aId) REFERENCES activity (id),
+    FOREIGN KEY (vId) REFERENCES weatherOptimal (id)
 );
 
 
@@ -54,7 +54,7 @@ CREATE TABLE activityWeather (
 SHOW TABLES;
 
 -- Insert the koordinates for the places
-INSERT INTO place(placeName, placeLongitude, placeLatitude)
+INSERT INTO place(name, longitude, latitude)
 VALUES ('Göteborg', '11.85', '57.66'),
        ('Kungsbacka', '11.96', '57.49'),
        ('Åsa', '12.07', '57.33'),
@@ -77,7 +77,7 @@ CREATE TABLE cachePlaceParameters (
     wind        INT NOT NULL,
     cloud       INT NOT NULL,
 
-    FOREIGN KEY (place) REFERENCES place (placeId)
+    FOREIGN KEY (place) REFERENCES place (id)
 );
 
 INSERT INTO cachePlaceParameters(place, temperature, wind, cloud)
@@ -99,7 +99,7 @@ CREATE TABLE cacheScores (
     volleyBall     INT NOT NULL,
     windSurfing    INT NOT NULL,
 
-    FOREIGN KEY (place) REFERENCES place (placeId)
+    FOREIGN KEY (place) REFERENCES place (id)
 );
 
 INSERT INTO cacheScores(place, fishing, outdoorSeating, sunBathing, volleyBall, windSurfing)
