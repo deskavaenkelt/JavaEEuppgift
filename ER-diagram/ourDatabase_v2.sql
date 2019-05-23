@@ -109,3 +109,6 @@ VALUES (1, 0, 0, 0, 0, 0),
        (4, 0, 0, 0, 0, 0),
        (5, 0, 0, 0, 0, 0);
 
+SELECT @@global.time_zone, @@session.time_zone;
+
+SET GLOBAL time_zone = '+01:00';
