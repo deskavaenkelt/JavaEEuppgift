@@ -12,7 +12,7 @@ import java.util.List;
 
 @ApplicationPath("/vaderaktivitetapi")
 @Path("/v1.0")
-public class ActivityWeatherApi extends Application {
+public class weatherActivityApi extends Application {
 
     //@Inject
     //private Repository cr;
