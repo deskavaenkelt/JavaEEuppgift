@@ -21,7 +21,8 @@ public class weatherActivityApi extends Application {
     @Path("/bad")
     //@Produces(MediaType.APPLICATION_JSON)
     public String bath() {
-        return "test";
+        String test = "hej";
+        return test;
         //return RequestsFromApi.sunbathing(0);
     }
 }
