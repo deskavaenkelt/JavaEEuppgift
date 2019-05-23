@@ -10,8 +10,6 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@ApplicationPath("/vaderaktivitet")
-=======
 @ApplicationPath("/weatherActivityApi")
 @Path("/v1.0")
 public class weatherActivityApi extends Application {
