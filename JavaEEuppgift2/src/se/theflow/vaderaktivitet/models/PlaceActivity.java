@@ -1,4 +1,4 @@
 package se.theflow.vaderaktivitet.models;
 
-public class PlatsAktivitet {
+public class PlaceActivity {
 }

@@ -3,5 +3,6 @@ package se.theflow.vaderaktivitet.models;
 import javax.persistence.Entity;
 
 @Entity
-public class AktivitetVader {
+public class ActivityWeather {
+
 }
