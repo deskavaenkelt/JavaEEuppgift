@@ -1,4 +1,4 @@
-/*package se.theflow.vaderaktivitet.api;
+package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
@@ -12,18 +12,16 @@ import java.util.List;
 
 @ApplicationPath("/vaderaktivitetapi")
 @Path("/v1.0")
-public class ActivityWheaterApi extends Application {
+public class ActivityWeatherApi extends Application {
 
-    @Inject
-    private Repository cr;
+    //@Inject
+    //private Repository cr;
 
     @GET
     @Path("/bad")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<ActivityPlaces> bath() {
+    //@Produces(MediaType.APPLICATION_JSON)
+    public String bath() {
         return "test";
         //return RequestsFromApi.sunbathing(0);
     }
 }
-
-*/
