@@ -67,3 +67,45 @@ DESCRIBE place;
 SELECT *
 FROM place;
 
+
+
+-- Skapa cache tabeller, fyll på med startvärden som sedan uppdateras via JavaEE
+CREATE TABLE cachePlaceParameters (
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    place       INT NOT NULL,
+    temperature INT NOT NULL,
+    wind        INT NOT NULL,
+    cloud       INT NOT NULL,
+
+    FOREIGN KEY (place) REFERENCES place (placeId)
+);
+
+INSERT INTO cachePlaceParameters(place, temperature, wind, cloud)
+VALUES (1, 0, 0, 0),
+       (2, 0, 0, 0),
+       (3, 0, 0, 0),
+       (4, 0, 0, 0),
+       (5, 0, 0, 0);
+
+
+
+CREATE TABLE cacheScores (
+    id             INT PRIMARY KEY AUTO_INCREMENT,
+    place          INT NOT NULL,
+
+    fishing        INT NOT NULL,
+    outdoorSeating INT NOT NULL,
+    sunBathing     INT NOT NULL,
+    volleyBall     INT NOT NULL,
+    windSurfing    INT NOT NULL,
+
+    FOREIGN KEY (place) REFERENCES place (placeId)
+);
+
+INSERT INTO cacheScores(place, fishing, outdoorSeating, sunBathing, volleyBall, windSurfing)
+VALUES (1, 0, 0, 0, 0, 0),
+       (2, 0, 0, 0, 0, 0),
+       (3, 0, 0, 0, 0, 0),
+       (4, 0, 0, 0, 0, 0),
+       (5, 0, 0, 0, 0, 0);
+
