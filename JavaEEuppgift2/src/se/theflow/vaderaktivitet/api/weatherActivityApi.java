@@ -1,6 +1,6 @@
 package se.theflow.vaderaktivitet.api;
 
-import se.theflow.vaderaktivitet.business.RequestsFromApi;
+//import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.GET;
@@ -18,9 +18,9 @@ public class weatherActivityApi extends Application {
     //private Repository cr;
 
     @GET
-    @Path("/bad")
+    @Path("/sunbathing")
     //@Produces(MediaType.APPLICATION_JSON)
-    public String bath() {
+    public String sunbathing() {
         return "test";
         //return RequestsFromApi.sunbathing(0);
     }

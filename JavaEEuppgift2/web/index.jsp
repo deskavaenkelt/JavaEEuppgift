@@ -14,6 +14,7 @@
   <article>
     <h1>Aktivitetsväderapi v1.0</h1>
     <p>Startsida som bara visar att servern är igång</p>
+    <p>Sofia löser detta.</p>
   </article>
   </body>
 </html>
