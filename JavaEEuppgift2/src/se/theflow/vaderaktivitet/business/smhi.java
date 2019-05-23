@@ -141,6 +141,12 @@ public class smhi {
             System.out.println("The current weather: " + currentCelsius + " Degrees celsius, with "
                     + currentCloudy + " /8ths cloud-coverage, and a windspeed of "
                     + currentWindSpeed + " m/s and an average rainfall of " + avgRainChance);
+            float floatCelsius = Float.parseFloat(currentCelsius);
+            float floatCloudiness = Float.parseFloat(currentCloudy);
+            float floatWindSpeed = Float.parseFloat(currentWindSpeed);
+            float floatRainFall = Float.parseFloat(avgRainChance);
+            System.out.println(floatCelsius + " " + floatCloudiness + " " + floatWindSpeed + " " + floatRainFall);
+
 
 
 
