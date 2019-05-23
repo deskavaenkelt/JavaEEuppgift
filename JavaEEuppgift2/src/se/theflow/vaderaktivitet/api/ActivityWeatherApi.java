@@ -10,7 +10,7 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@ApplicationPath("/vaderaktivitetapi")
+@ApplicationPath("/vaderaktivitet")
 @Path("/v1.0")
 public class ActivityWeatherApi extends Application {
 
@@ -18,9 +18,9 @@ public class ActivityWeatherApi extends Application {
     //private Repository cr;
 
     @GET
-    @Path("/bad")
+    @Path("/sunbathing")
     //@Produces(MediaType.APPLICATION_JSON)
-    public String bath() {
+    public String sunbathing() {
         return "test";
         //return RequestsFromApi.sunbathing(0);
     }
