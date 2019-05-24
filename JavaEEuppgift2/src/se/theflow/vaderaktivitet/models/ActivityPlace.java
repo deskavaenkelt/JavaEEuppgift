@@ -1,20 +1,18 @@
 package se.theflow.vaderaktivitet.models;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class ActivityWeather {
+public class ActivityPlace {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = aktivitetId)   - behövs ej pga samma namespace
     private Integer id;
 
-    private Integer aId;
+    private Integer pId;
 
-    private Integer vId;
+    private Integer aId;
 
     public Integer getId() {
         return id;
@@ -24,6 +22,14 @@ public class ActivityWeather {
         this.id = id;
     }
 
+    public Integer getpId() {
+        return pId;
+    }
+
+    public void setpId(Integer pId) {
+        this.pId = pId;
+    }
+
     public Integer getaId() {
         return aId;
     }
@@ -31,12 +37,5 @@ public class ActivityWeather {
     public void setaId(Integer aId) {
         this.aId = aId;
     }
-
-    public Integer getvId() {
-        return vId;
-    }
-
-    public void setvId(Integer vId) {
-        this.vId = vId;
-    }
 }
+

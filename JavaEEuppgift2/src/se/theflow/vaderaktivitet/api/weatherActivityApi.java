@@ -18,10 +18,11 @@ public class weatherActivityApi extends Application {
     //private Repository cr;
 
     @GET
-    @Path("/sunbathing")
+    @Path("/bad")
     //@Produces(MediaType.APPLICATION_JSON)
-    public String sunbathing() {
-        return "test";
+    public String bath() {
+        String test = "hej";
+        return test;
         //return RequestsFromApi.sunbathing(0);
     }
 }
