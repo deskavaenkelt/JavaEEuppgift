@@ -1,0 +1,6 @@
+MySqVAlDS
+
+com.mysql.cj.jdbc.Driver
+
+jdbc:mysql://localhost:3306/weatherActivityApi
+
