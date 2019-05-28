@@ -1,6 +1,5 @@
 SHOW DATABASES;
 
-
 -- Create databases
 CREATE DATABASE weatherActivityApi;
 USE weatherActivityApi;
@@ -36,9 +35,7 @@ CREATE TABLE weatherOptimal (
     cloudy      INT NOT NULL,
     rainfall    INT NOT NULL,
     temperature INT NOT NULL,
-    wind        INT NOT NULL,
-
-    FOREIGN KEY (activity) REFERENCES activity (id)
+    wind        INT NOT NULL
 );
 
 CREATE TABLE activityWeather (
