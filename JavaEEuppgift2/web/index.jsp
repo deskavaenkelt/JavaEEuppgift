@@ -23,8 +23,10 @@
     <ul>
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/place">Place</a></li>
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/test">Test</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/open">Open</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/secured">Secured</a></li>
     </ul>
   </article>
-  
+
   </body>
 </html>
