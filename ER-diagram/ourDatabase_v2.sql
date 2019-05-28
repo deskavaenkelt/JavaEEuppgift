@@ -1,7 +1,6 @@
 SHOW DATABASES;
 
 
-
 -- Create databases
 CREATE DATABASE weatherActivityApi;
 USE weatherActivityApi;
@@ -73,6 +72,8 @@ FROM place;
 CREATE TABLE cachePlaceParameters (
     id          INT PRIMARY KEY AUTO_INCREMENT,
     place       INT NOT NULL,
+    day         INT NOT NULL,
+
     temperature INT NOT NULL,
     wind        INT NOT NULL,
     cloud       INT NOT NULL,
@@ -80,18 +81,44 @@ CREATE TABLE cachePlaceParameters (
     FOREIGN KEY (place) REFERENCES place (id)
 );
 
-INSERT INTO cachePlaceParameters(place, temperature, wind, cloud)
-VALUES (1, 0, 0, 0),
-       (2, 0, 0, 0),
-       (3, 0, 0, 0),
-       (4, 0, 0, 0),
-       (5, 0, 0, 0);
+INSERT INTO cachePlaceParameters(place, day, temperature, wind, cloud)
+VALUES (1, 0, 0, 0, 0),
+       (1, 1, 0, 0, 0),
+       (1, 2, 0, 0, 0),
+       (1, 3, 0, 0, 0),
+       (1, 4, 0, 0, 0),
+       (1, 5, 0, 0, 0),
+       (2, 0, 0, 0, 0),
+       (2, 1, 0, 0, 0),
+       (2, 2, 0, 0, 0),
+       (2, 3, 0, 0, 0),
+       (2, 4, 0, 0, 0),
+       (2, 5, 0, 0, 0),
+       (3, 0, 0, 0, 0),
+       (3, 1, 0, 0, 0),
+       (3, 2, 0, 0, 0),
+       (3, 3, 0, 0, 0),
+       (3, 4, 0, 0, 0),
+       (3, 5, 0, 0, 0),
+       (4, 0, 0, 0, 0),
+       (4, 1, 0, 0, 0),
+       (4, 2, 0, 0, 0),
+       (4, 3, 0, 0, 0),
+       (4, 4, 0, 0, 0),
+       (4, 5, 0, 0, 0),
+       (5, 0, 0, 0, 0),
+       (5, 1, 0, 0, 0),
+       (5, 2, 0, 0, 0),
+       (5, 3, 0, 0, 0),
+       (5, 4, 0, 0, 0),
+       (5, 5, 0, 0, 0);
 
 
 
 CREATE TABLE cacheScores (
     id             INT PRIMARY KEY AUTO_INCREMENT,
     place          INT NOT NULL,
+    day            INT NOT NULL,
 
     fishing        INT NOT NULL,
     outdoorSeating INT NOT NULL,
@@ -102,13 +129,39 @@ CREATE TABLE cacheScores (
     FOREIGN KEY (place) REFERENCES place (id)
 );
 
-INSERT INTO cacheScores(place, fishing, outdoorSeating, sunBathing, volleyBall, windSurfing)
-VALUES (1, 0, 0, 0, 0, 0),
-       (2, 0, 0, 0, 0, 0),
-       (3, 0, 0, 0, 0, 0),
-       (4, 0, 0, 0, 0, 0),
-       (5, 0, 0, 0, 0, 0);
+INSERT INTO cacheScores(place, day, fishing, outdoorSeating, sunBathing, volleyBall, windSurfing)
+VALUES (1, 0, 0, 0, 0, 0, 0),
+       (1, 1, 0, 0, 0, 0, 0),
+       (1, 2, 0, 0, 0, 0, 0),
+       (1, 3, 0, 0, 0, 0, 0),
+       (1, 4, 0, 0, 0, 0, 0),
+       (1, 5, 0, 0, 0, 0, 0),
+       (2, 0, 0, 0, 0, 0, 0),
+       (2, 1, 0, 0, 0, 0, 0),
+       (2, 2, 0, 0, 0, 0, 0),
+       (2, 3, 0, 0, 0, 0, 0),
+       (2, 4, 0, 0, 0, 0, 0),
+       (2, 5, 0, 0, 0, 0, 0),
+       (3, 0, 0, 0, 0, 0, 0),
+       (3, 1, 0, 0, 0, 0, 0),
+       (3, 2, 0, 0, 0, 0, 0),
+       (3, 3, 0, 0, 0, 0, 0),
+       (3, 4, 0, 0, 0, 0, 0),
+       (3, 5, 0, 0, 0, 0, 0),
+       (4, 0, 0, 0, 0, 0, 0),
+       (4, 1, 0, 0, 0, 0, 0),
+       (4, 2, 0, 0, 0, 0, 0),
+       (4, 3, 0, 0, 0, 0, 0),
+       (4, 4, 0, 0, 0, 0, 0),
+       (4, 5, 0, 0, 0, 0, 0),
+       (5, 0, 0, 0, 0, 0, 0),
+       (5, 1, 0, 0, 0, 0, 0),
+       (5, 2, 0, 0, 0, 0, 0),
+       (5, 3, 0, 0, 0, 0, 0),
+       (5, 4, 0, 0, 0, 0, 0),
+       (5, 5, 0, 0, 0, 0, 0);
 
 SELECT @@global.time_zone, @@session.time_zone;
 
 SET GLOBAL time_zone = '+01:00';
+SET SESSION time_zone = '+01:00';
