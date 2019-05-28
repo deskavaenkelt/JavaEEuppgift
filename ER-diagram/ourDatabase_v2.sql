@@ -164,7 +164,6 @@ VALUES (1, 0, 0, 0, 0, 0, 0),
        (5, 4, 0, 0, 0, 0, 0),
        (5, 5, 0, 0, 0, 0, 0);
 
-DROP TABLE users;
 CREATE TABLE users
 (
     id           INT PRIMARY KEY AUTO_INCREMENT,
