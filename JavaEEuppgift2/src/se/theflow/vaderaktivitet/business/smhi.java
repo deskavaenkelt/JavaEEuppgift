@@ -214,19 +214,23 @@ public class smhi {
     public static String urlGenerator (String location){
         String myUrl = "";
         if(location.contains("gothenburg")){
-            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.94/lat/57.69/data.json";
+            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.85/lat/57.66/data.json";
             return myUrl;
         }
         else if(location.contains("kungsbacka")){
-            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.06/lat/57.46/data.json";
+            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.96/lat/57.49/data.json";
             return myUrl;
         }
         else if(location.contains("åsa")){
-            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.12/lat/57.34/data.json";
+            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.07/lat/57.33/data.json";
             return myUrl;
         }
         else if(location.contains("varberg")){
-            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.24/lat/57.09/data.json";
+            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.25/lat/57.10/data.json";
+            return myUrl;
+        }
+        else if(location.contains("falkenberg")){
+            myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.50/lat/56.88/data.json";
             return myUrl;
         }
         return myUrl;
