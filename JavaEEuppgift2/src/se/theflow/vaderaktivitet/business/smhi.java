@@ -28,13 +28,17 @@ public class smhi {
 
     }
     public static float[] weatherFetcher(float currentTime, String whatUrl){
+        //Assigning variables
         float weatherNow[] = new float[4];
+        String currentCelsius = "";
+        String currentCloudy = "";
+        String currentWindSpeed = "";
+        String avgRainChance = "";
+        int i = 0;
+        int loopStart = 1;
+        int loopStop = 19;
 
-
-
-
-
-            try {
+        try {
                 String url = whatUrl;
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -55,20 +59,8 @@ public class smhi {
                 //System.out.println(myResponse);
                 String preSplit = myResponse.toString();
 
-
-
                 //Splitting them up
                 String [] arrOfStr = preSplit.split("unit");
-
-
-                //assigning their new names
-                String currentCelsius = "";
-                String currentCloudy = "";
-                String currentWindSpeed = "";
-                String avgRainChance = "";
-                int i = 0;
-                int loopStart = 1;
-                int loopStop = 19;
 
                 if(currentTime != 0) {
                     for (int j = 0; j < currentTime; j++){
