@@ -19,7 +19,7 @@ public class smhi {
        // if(location== gothenburg)
         //Now
 
-        weatherFetcher(10, urlGenerator("gothenburg"));
+        weatherFetcher(0, urlGenerator("gothenburg"));
 
 
 
@@ -54,12 +54,12 @@ public class smhi {
 
                 //System.out.println(myResponse);
                 String preSplit = myResponse.toString();
-                System.out.println(preSplit);
+
 
 
                 //Splitting them up
                 String [] arrOfStr = preSplit.split("unit");
-                System.out.println("Array 20  " + arrOfStr[20]);
+
 
                 //assigning their new names
                 String currentCelsius = "";
@@ -95,65 +95,11 @@ public class smhi {
 
                 }
 
-                System.out.println(currentCelsius + " Degrees celsius");
-                System.out.println(currentCloudy + " Amount of cloudiness");
-                System.out.println(currentWindSpeed + " Current windspeed");
-                System.out.println(avgRainChance + " Average rainfall");
-                //Removing trash(")<--
-                currentCelsius = currentCelsius.replace("\"", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("\"", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("\"", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("\"", "");
-                System.out.println(avgRainChance);
-
-                //Removing trash(:)<--
-                currentCelsius = currentCelsius.replace(":", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace(":", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace(":", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace(":", "");
-                System.out.println(avgRainChance);
-                //Removing trash({)<--
-                currentCelsius = currentCelsius.replace("{", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("{", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("{", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("{", "");
-                System.out.println(avgRainChance);
-                //Removing trash(,)<--
-                currentCelsius = currentCelsius.replace(",", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace(",", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace(",", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace(",", "");
-                System.out.println(avgRainChance);
-                //Removing trash(})<--
-                currentCelsius = currentCelsius.replace("}", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("}", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("}", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("}", "");
-                System.out.println(avgRainChance);
-                //Removing trash(names)<--
-                currentCelsius = currentCelsius.replace("namet", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("nametcc_mean", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("namews", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("namepmean", "");
-                System.out.println(avgRainChance);
+                //Removing trash
+                currentCelsius = currentCelsius.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namet", "");
+                currentCloudy = currentCloudy.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("nametcc_mean", "");
+                currentWindSpeed = currentWindSpeed.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namews", "");
+                avgRainChance = avgRainChance.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namepmean", "");
 
                 //Splitting them up to extract values
                 String[] tempCelArray = currentCelsius.split("values");
@@ -166,25 +112,11 @@ public class smhi {
                 currentWindSpeed = tempWsArray[1];
                 avgRainChance = tempRainArray[1];
 
-                //Finalizing trash removal (1/2(])<--)
-                currentCelsius = currentCelsius.replace("]", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("]", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("]", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("]", "");
-                System.out.println(avgRainChance);
-
-                //Finalizing trash removal (2/2([)<--)
-                currentCelsius = currentCelsius.replace("[", "");
-                System.out.println(currentCelsius);
-                currentCloudy = currentCloudy.replace("[", "");
-                System.out.println(currentCloudy);
-                currentWindSpeed = currentWindSpeed.replace("[", "");
-                System.out.println(currentWindSpeed);
-                avgRainChance = avgRainChance.replace("[", "");
-                System.out.println(avgRainChance);
+                //Finalizing trash removal
+                currentCelsius = currentCelsius.replace("]", "").replace("[", "");
+                currentCloudy = currentCloudy.replace("]", "").replace("[", "");
+                currentWindSpeed = currentWindSpeed.replace("]", "").replace("[", "");
+                avgRainChance = avgRainChance.replace("]", "").replace("[", "");
 
 
                 System.out.println("The current weather: " + currentCelsius + " Degrees celsius, with "
