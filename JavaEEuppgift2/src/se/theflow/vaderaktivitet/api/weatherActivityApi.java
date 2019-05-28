@@ -34,18 +34,22 @@ public class weatherActivityApi extends Application {
     @GET
     @Path("/test")
     @Produces(MediaType.TEXT_PLAIN)
-    public String secureApi() {
+    public String testApi() {
         return "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.";
     }
 
-    /*
     @GET
-    @Path("/bad")
-    //@Produces(MediaType.APPLICATION_JSON)
-    public String bath() {
-        String test = "hej";
-        return test;
-        //return RequestsFromApi.sunbathing(0);
+    @Path("/secured")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String secureApi() {
+        return "This requires login and you are verified";
     }
-*/
+
+    @GET
+    @Path("/open")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String openApi() {
+        return "This does not require login.";
+    }
+
 }
