@@ -20,7 +20,7 @@
 
   <article>
     <h2>API frågor:</h2>
-    <ul>
+    <ul style="list-style-type:none;">
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/place">Place</a></li>
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/test">Test</a></li>
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/open">Open</a></li>
