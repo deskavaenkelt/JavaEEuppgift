@@ -164,19 +164,23 @@ VALUES (1, 0, 0, 0, 0, 0, 0),
        (5, 4, 0, 0, 0, 0, 0),
        (5, 5, 0, 0, 0, 0, 0);
 
+DROP TABLE users;
 CREATE TABLE users
 (
     id           INT PRIMARY KEY AUTO_INCREMENT,
     userName     VARCHAR(20) NOT NULL,
+    userSalt     VARCHAR(10000) NOT NULL,
     userPassword VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users(userName, userPassword)
-VALUES ('lars', 'qwerty'),
-       ('sofia', 'testar'),
-       ('alexander', 'fluw'),
-       ('linus', 'chaowe');
+INSERT INTO users(userName, userSalt, userPassword)
+VALUES ('lars', 'x', 'qwerty'),
+       ('sofia', 'xxx', 'testar'),
+       ('alexander', 'xx', 'fluw'),
+       ('linus', 'xxxx', 'chaowe');
 
+SELECT *
+FROM users;
 
 
 
