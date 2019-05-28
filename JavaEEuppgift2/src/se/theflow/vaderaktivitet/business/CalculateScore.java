@@ -31,7 +31,6 @@ public class CalculateScore {
         HighScoreTempVindRain(vindOptimal, vindNow);
         HighScoreTempVindRain(rainOptimal, rainNow);
         HighScoreCloud(cloudOptimal, cloudNow);
-        System.out.println("Poäng för temp: ");
     }
 
     public static int HighScoreTempVindRain(int Optimal, int Now) {
