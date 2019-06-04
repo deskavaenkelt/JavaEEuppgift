@@ -11,20 +11,58 @@ import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
 public class smhi {
-    public static void main(String[] args) {
+
+        public static void main(String[] args) {
+
+            Scanner scan = new Scanner(System.in);
+            String formattedDate = "";
+            try {
 
 
-        //String location = getName();
+                System.out.println("Please choose the time you want to know the weather for: 1 = Now, 2 = sometime today, input hours from now, 3 = All of today (in hours), 4 = Every hour of the day and every upcoming day. ");
+                int whatTime = scan.nextInt();
 
-       // if(location== gothenburg)
-        //Now
 
-        weatherFetcher(timeConstructor(), urlGenerator("gothenburg"));
-        timeConstructor();
+                switch (whatTime) {
+                    case 1:
+                        formattedDate = timeAdder(0);
+                        weatherFetcher(formattedDate, urlGenerator("gothenburg"));
+                        break;
+
+                    case 2:
+                        try {
+                            System.out.println("Please input how many hours from now you want the weather (Only Integers)");
+                            int hoursAdded = scan.nextInt();
+                            formattedDate = timeAdder(hoursAdded);
+                            weatherFetcher(formattedDate, urlGenerator("gothenburg"));
+
+                        } catch (InputMismatchException e) {
+                            System.out.println("Input was not an integer.");
+                        }
+                        break;
+
+                    case 3:
+                        for(int k = 0; k <= 200; k++){
+                            formattedDate = timeAdder(k);
+                            System.out.println(formattedDate);
+                            weatherFetcher(formattedDate, urlGenerator("gothenburg"));
+                        }
+                        break;
+
+                }
+            }catch (InputMismatchException e) {
+                System.out.println("only input integers (1, 2, 3, 4 etc).");
+            }
+
+
+
 
     }
     public static float[] weatherFetcher(String currentTime, String whatUrl){
@@ -65,12 +103,9 @@ public class smhi {
 
                 //Splitting them up
                 String [] tempArrOfStr = preSplit.split("validTime");
-                System.out.println("before loop");
                 for(int j=0; j <= tempArrOfStr.length; j++){
-                    System.out.println("in loop");
                     String tempString = tempArrOfStr[j];
                     newString = tempString.replace("\"", "").replaceFirst(":", "").replaceFirst("t", "").replaceFirst("z", "").replace("T", " ");
-                    System.out.println(newString);
                     if(newString.indexOf(currentTime) > -1){
                         System.out.println("found it");
                         break;
@@ -149,7 +184,6 @@ public class smhi {
                 float floatWindSpeed = Float.parseFloat(currentWindSpeed);
                 float floatRainFall = Float.parseFloat(avgRainChance);
                 System.out.println(floatCelsius + " " + floatCloudiness + " " + floatWindSpeed + " " + floatRainFall);
-                System.out.println(floatWindSpeed);
                 weatherNow[0] = floatCelsius;
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
@@ -189,14 +223,14 @@ public class smhi {
         }
         return myUrl;
     }
-    public static String timeConstructor (){
-        LocalDateTime myObj = LocalDateTime.now();
-        System.out.println("unformatted: " + myObj);
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
-        String formattedDate = myObj.format(myFormatObj);
-        System.out.println("Formatted: " + formattedDate);
-        return formattedDate;
+    public static String timeAdder (int addedHours){
+            LocalDateTime myObj = LocalDateTime.now();
+            LocalDateTime newTime = myObj.plusHours(addedHours);
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+            String formattedDate = newTime.format(myFormatObj);
+            return formattedDate;
     }
 
 }
+
 
