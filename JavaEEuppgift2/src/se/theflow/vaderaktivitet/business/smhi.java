@@ -154,7 +154,7 @@ public class smhi {
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
-                
+
 
             }
             catch(Exception e){
