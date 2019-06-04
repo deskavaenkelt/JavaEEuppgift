@@ -16,23 +16,26 @@ import se.theflow.vaderaktivitet.models.Place;
 
 public class smhi {
     public static void main(String[] args) {
-        timeConstructor();
+
 
         //String location = getName();
 
        // if(location== gothenburg)
         //Now
 
-        //weatherFetcher(9, urlGenerator("gothenburg"));
+        weatherFetcher(timeConstructor(), urlGenerator("gothenburg"));
+        timeConstructor();
 
     }
-    public static float[] weatherFetcher(float currentTime, String whatUrl){
+    public static float[] weatherFetcher(String currentTime, String whatUrl){
         //Assigning variables
         float weatherNow[] = new float[4];
         String currentCelsius = "";
         String currentCloudy = "";
         String currentWindSpeed = "";
         String avgRainChance = "";
+        String newString = "";
+
         int i = 0;
         int loopStart = 1;
         int loopStop = 19;
@@ -61,32 +64,58 @@ public class smhi {
                 String preSplit = myResponse.toString();
 
                 //Splitting them up
-                String [] arrOfStr = preSplit.split("unit");
+                String [] tempArrOfStr = preSplit.split("validTime");
+                System.out.println("before loop");
+                for(int j=0; j <= tempArrOfStr.length; j++){
+                    System.out.println("in loop");
+                    String tempString = tempArrOfStr[j];
+                    newString = tempString.replace("\"", "").replaceFirst(":", "").replaceFirst("t", "").replaceFirst("z", "").replace("T", " ");
+                    System.out.println(newString);
+                    if(newString.indexOf(currentTime) > -1){
+                        System.out.println("found it");
+                        break;
 
-                if(currentTime != 0) {
-                    for (int j = 0; j < currentTime; j++){
-                        loopStart += 19;
-                        loopStop += 19;
-                        System.out.println("current loop variable status: " + loopStart + "  " + loopStop);
                     }
-                }
 
-                for(i = loopStart; i <= loopStop; i++){
-                    if(arrOfStr[i].contains("Cel")){
-                        currentCelsius = arrOfStr[i];
-                    }
-                    else if(arrOfStr[i].contains("tcc_mean")){
-                        currentCloudy = arrOfStr[i];
-                    }
-                    else if(arrOfStr[i].contains("\"name\":\"ws\"")){
-                        currentWindSpeed = arrOfStr[i];
-                    }
-                    else if(arrOfStr[i].contains("pmean")){
-                        avgRainChance = arrOfStr[i];
-                    }
 
 
                 }
+            String [] arrOfStr = newString.split("unit");
+
+            for(i = 0; i <= arrOfStr.length; i++){
+                if(arrOfStr[i].contains("Cel")){
+                    currentCelsius = arrOfStr[i];
+                    System.out.println("cel obtained!");
+                    break;
+                }}
+                for(i = 0; i <= arrOfStr.length; i++){
+                if(arrOfStr[i].contains("tcc_mean")){
+                    currentCloudy = arrOfStr[i];
+                    System.out.println("clouds obtained!");
+                    break;
+
+                }}
+                for(i = 0; i <= arrOfStr.length; i++){
+                if(arrOfStr[i].contains("name:ws")){
+                    currentWindSpeed = arrOfStr[i];
+                    System.out.println("Wind obtained!");
+                    break;
+                }}
+                for(i = 0; i <= arrOfStr.length; i++){
+                if(arrOfStr[i].contains("pmean")){
+                    avgRainChance = arrOfStr[i];
+                    System.out.println("rain obtained!");
+                    break;
+                }
+
+
+
+            }
+
+
+            System.out.println("got out of forloop");
+
+
 
                 //Removing trash
                 currentCelsius = currentCelsius.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namet", "");
@@ -125,7 +154,7 @@ public class smhi {
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
-
+                
 
             }
             catch(Exception e){
@@ -162,7 +191,8 @@ public class smhi {
     }
     public static String timeConstructor (){
         LocalDateTime myObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println("unformatted: " + myObj);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
         String formattedDate = myObj.format(myFormatObj);
         System.out.println("Formatted: " + formattedDate);
         return formattedDate;
