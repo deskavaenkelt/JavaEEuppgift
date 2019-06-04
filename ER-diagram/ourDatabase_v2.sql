@@ -1,6 +1,5 @@
 SHOW DATABASES;
 
-
 -- Create databases
 CREATE DATABASE weatherActivityApi;
 USE weatherActivityApi;
@@ -30,12 +29,13 @@ CREATE TABLE activityPlace (
 );
 
 CREATE TABLE weatherOptimal (
-    id           INT PRIMARY KEY AUTO_INCREMENT,
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    activity    INT NOT NULL,
 
-    cloudy       INT NOT NULL,
-    rainfall     INT NOT NULL,
-    temperature  INT NOT NULL,
-    wind         INT NOT NULL
+    cloudy      INT NOT NULL,
+    rainfall    INT NOT NULL,
+    temperature INT NOT NULL,
+    wind        INT NOT NULL
 );
 
 CREATE TABLE activityWeather (
@@ -45,6 +45,32 @@ CREATE TABLE activityWeather (
 
     FOREIGN KEY (aId) REFERENCES activity (id),
     FOREIGN KEY (vId) REFERENCES weatherOptimal (id)
+);
+
+CREATE TABLE cachePlaceParameters (
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    place       INT NOT NULL,
+    day         INT NOT NULL,
+
+    temperature INT NOT NULL,
+    wind        INT NOT NULL,
+    cloud       INT NOT NULL,
+
+    FOREIGN KEY (place) REFERENCES place (id)
+);
+
+CREATE TABLE cacheScores (
+    id             INT PRIMARY KEY AUTO_INCREMENT,
+    place          INT NOT NULL,
+    day            INT NOT NULL,
+
+    fishing        INT NOT NULL,
+    outdoorSeating INT NOT NULL,
+    sunBathing     INT NOT NULL,
+    volleyBall     INT NOT NULL,
+    windSurfing    INT NOT NULL,
+
+    FOREIGN KEY (place) REFERENCES place (id)
 );
 
 
@@ -60,26 +86,19 @@ VALUES ('Göteborg', '11.85', '57.66'),
        ('Varberg', '12.25', '57.10'),
        ('Falkenberg', '12.50', '56.88');
 
+INSERT INTO activity(name)
+VALUES ('fishing'),
+       ('outdoorSeating'),
+       ('sunBathing'),
+       ('volleyBall'),
+       ('windSurfing');
 
-DESCRIBE place;
-
-SELECT *
-FROM place;
-
-
-
--- Skapa cache tabeller, fyll på med startvärden som sedan uppdateras via JavaEE
-CREATE TABLE cachePlaceParameters (
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    place       INT NOT NULL,
-    day         INT NOT NULL,
-
-    temperature INT NOT NULL,
-    wind        INT NOT NULL,
-    cloud       INT NOT NULL,
-
-    FOREIGN KEY (place) REFERENCES place (id)
-);
+INSERT INTO weatherOptimal(activity, cloudy, rainfall, temperature, wind)
+VALUES (0, 0, 0, 0, 0),
+       (1, 0, 0, 0, 0),
+       (2, 0, 0, 0, 0),
+       (3, 0, 0, 0, 0),
+       (4, 0, 0, 0, 0);
 
 INSERT INTO cachePlaceParameters(place, day, temperature, wind, cloud)
 VALUES (1, 0, 0, 0, 0),
@@ -113,22 +132,6 @@ VALUES (1, 0, 0, 0, 0),
        (5, 4, 0, 0, 0),
        (5, 5, 0, 0, 0);
 
-
-
-CREATE TABLE cacheScores (
-    id             INT PRIMARY KEY AUTO_INCREMENT,
-    place          INT NOT NULL,
-    day            INT NOT NULL,
-
-    fishing        INT NOT NULL,
-    outdoorSeating INT NOT NULL,
-    sunBathing     INT NOT NULL,
-    volleyBall     INT NOT NULL,
-    windSurfing    INT NOT NULL,
-
-    FOREIGN KEY (place) REFERENCES place (id)
-);
-
 INSERT INTO cacheScores(place, day, fishing, outdoorSeating, sunBathing, volleyBall, windSurfing)
 VALUES (1, 0, 0, 0, 0, 0, 0),
        (1, 1, 0, 0, 0, 0, 0),
@@ -160,6 +163,30 @@ VALUES (1, 0, 0, 0, 0, 0, 0),
        (5, 3, 0, 0, 0, 0, 0),
        (5, 4, 0, 0, 0, 0, 0),
        (5, 5, 0, 0, 0, 0, 0);
+
+CREATE TABLE users
+(
+    id           INT PRIMARY KEY AUTO_INCREMENT,
+    userName     VARCHAR(20) NOT NULL,
+    userSalt     VARCHAR(10000) NOT NULL,
+    userPassword VARCHAR(50) NOT NULL
+);
+
+INSERT INTO users(userName, userSalt, userPassword)
+VALUES ('lars', 'x', 'qwerty'),
+       ('sofia', 'xxx', 'testar'),
+       ('alexander', 'xx', 'fluw'),
+       ('linus', 'xxxx', 'chaowe');
+
+SELECT *
+FROM users;
+
+
+
+DESCRIBE place;
+
+SELECT *
+FROM place;
 
 SELECT @@global.time_zone, @@session.time_zone;
 
