@@ -8,23 +8,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLOutput;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
 public class smhi {
     public static void main(String[] args) {
+        timeConstructor();
+
         //String location = getName();
 
        // if(location== gothenburg)
         //Now
 
-        weatherFetcher(0, urlGenerator("gothenburg"));
-
-
-
-
-
+        //weatherFetcher(9, urlGenerator("gothenburg"));
 
     }
     public static float[] weatherFetcher(float currentTime, String whatUrl){
@@ -39,6 +38,8 @@ public class smhi {
         int loopStop = 19;
 
         try {
+
+
                 String url = whatUrl;
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -158,6 +159,13 @@ public class smhi {
             return myUrl;
         }
         return myUrl;
+    }
+    public static String timeConstructor (){
+        LocalDateTime myObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = myObj.format(myFormatObj);
+        System.out.println("Formatted: " + formattedDate);
+        return formattedDate;
     }
 
 }
