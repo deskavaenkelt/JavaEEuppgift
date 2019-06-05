@@ -33,6 +33,10 @@ public class smhi {
                 switch (whatTime) {
                     case 1:
                         formattedDate = timeAdder(0);
+                        weatherFetcher(formattedDate, urlGenerator("varberg" +
+                                ""));
+                        weatherFetcher(formattedDate, urlGenerator("åsa"));
+                        weatherFetcher(formattedDate, urlGenerator("kungsbacka"));
                         weatherFetcher(formattedDate, urlGenerator("gothenburg"));
                         break;
 
@@ -189,6 +193,8 @@ public class smhi {
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
 
+                // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
+
 
             }
             catch(Exception e){
@@ -199,6 +205,7 @@ public class smhi {
         return weatherNow;
 
     }
+
     public static String urlGenerator (String location){
         String myUrl = "";
         if(location.contains("gothenburg")){
@@ -232,5 +239,6 @@ public class smhi {
     }
 
 }
+
 
 
