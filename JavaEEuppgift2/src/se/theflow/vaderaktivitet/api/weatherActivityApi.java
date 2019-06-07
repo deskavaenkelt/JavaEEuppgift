@@ -2,14 +2,15 @@ package se.theflow.vaderaktivitet.api;
 
 //import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
+import se.theflow.vaderaktivitet.models.Users;
+import se.theflow.vaderaktivitet.repository.UserLogin;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 
 import javax.inject.Inject;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -20,6 +21,9 @@ public class weatherActivityApi extends Application {
 
     @Inject
     private WeatherActivityRepository cr;
+
+    @Inject
+    private UserLogin userLogin;
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -42,14 +46,52 @@ public class weatherActivityApi extends Application {
     @Path("/secured")
     @Produces(MediaType.TEXT_PLAIN)
     public String secureApi() {
-        return "This requires login and you are verified";
+        return "ACCESS GRANTED: you are verified";
     }
 
     @GET
     @Path("/open")
     @Produces(MediaType.TEXT_PLAIN)
     public String openApi() {
-        return "This does not require login.";
+        return "OPEN CONNECTION: does not require login.";
+    }
+
+    // Users
+    @GET
+    @Path("/secured/listusers")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Users> getUsers() {
+        return userLogin.getAllUsers();
+    }
+
+    @GET
+    @Path("users/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    // id 1-4
+    public Users getId(@PathParam("id") int id) {
+        return userLogin.findUserByUserName(id);
+    }
+
+    @GET
+    @Path("username/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    // id 1-4
+    public String getNameById(@PathParam("id") int id) {
+        return userLogin.findUserByUserIdReturnName(id);
+    }
+    @GET
+    @Path("usersalt/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    // id 1-4
+    public String getSaltById(@PathParam("id") int id) {
+        return userLogin.findUserByUserIdReturnSalt(id);
+    }
+    @GET
+    @Path("userpassword/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    // id 1-4
+    public String getPasswordById(@PathParam("id") int id) {
+        return userLogin.findUserByUserIdReturnPassword(id);
     }
 
 }
