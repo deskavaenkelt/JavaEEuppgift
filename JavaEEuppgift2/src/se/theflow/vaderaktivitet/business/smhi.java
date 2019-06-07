@@ -53,11 +53,16 @@ public class smhi {
                         break;
 
                     case 3:
-                        for(int k = 0; k <= 200; k++){
+                        LocalDateTime tempTime = LocalDateTime.now();
+                        DateTimeFormatter tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                        String tempTimeString = tempTime.format(tempFormat);
+                        for(int k = 0; k <= 24; k++){
                             formattedDate = timeAdder(k);
-                            System.out.println(formattedDate);
+                            if(formattedDate.contains(tempTimeString)){
                             weatherFetcher(formattedDate, urlGenerator("gothenburg"));
-                        }
+                        }else {
+                                System.out.println("Finished printing");
+                            }}
                         break;
 
                 }
