@@ -169,7 +169,7 @@ CREATE TABLE users
     id           INT PRIMARY KEY AUTO_INCREMENT,
     userName     VARCHAR(20) NOT NULL,
     userSalt     VARCHAR(10000) NOT NULL,
-    userPassword VARCHAR(50) NOT NULL
+    userPassword VARCHAR(70) NOT NULL
 );
 
 INSERT INTO users(userName, userSalt, userPassword)
