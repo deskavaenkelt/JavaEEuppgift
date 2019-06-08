@@ -2,8 +2,6 @@ package se.theflow.vaderaktivitet.api;
 
 //import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 import se.theflow.vaderaktivitet.models.Users;
 import se.theflow.vaderaktivitet.repository.UserLogin;
@@ -13,6 +11,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
@@ -66,32 +65,20 @@ public class weatherActivityApi extends Application {
 
     @GET
     @Path("users/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    // id 1-4
-    public Users getId(@PathParam("id") int id) {
-        return userLogin.findUserByUserName(id);
+    @Produces(MediaType.TEXT_PLAIN)
+    // id 1-4,
+    // Return one user object
+    public String getId(@PathParam("id") int id) {
+        //return userLogin.findUserByUserName(id);
+        return userLogin.findUserByUserName(id).getUserName();
     }
 
-    @GET
-    @Path("username/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    // id 1-4
-    public String getNameById(@PathParam("id") int id) {
-        return userLogin.findUserByUserIdReturnName(id);
-    }
-    @GET
-    @Path("usersalt/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    // id 1-4
-    public String getSaltById(@PathParam("id") int id) {
-        return userLogin.findUserByUserIdReturnSalt(id);
-    }
-    @GET
-    @Path("userpassword/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    // id 1-4
-    public String getPasswordById(@PathParam("id") int id) {
-        return userLogin.findUserByUserIdReturnPassword(id);
+    @POST
+    @Path("secured/createuser")
+    public Response createNewUserAccount(Users users) {
+        userLogin.createNewUser(users);
+
+        return Response.ok().build();
     }
 
 }

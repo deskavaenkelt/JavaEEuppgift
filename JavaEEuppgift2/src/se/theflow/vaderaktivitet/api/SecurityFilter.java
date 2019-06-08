@@ -1,6 +1,7 @@
 package se.theflow.vaderaktivitet.api;
 
 
+import se.theflow.vaderaktivitet.business.HashPasswordGenerator;
 import se.theflow.vaderaktivitet.repository.UserLogin;
 import sun.misc.BASE64Decoder;
 
@@ -22,6 +23,9 @@ public class SecurityFilter implements ContainerRequestFilter {
     @Inject
     private UserLogin userLogin;
 
+    @Inject
+    HashPasswordGenerator hashPasswordGenerator;
+
     //@Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         if (containerRequestContext.getUriInfo().getPath().contains(SECURED_URL_PREFIX)) {
@@ -32,14 +36,16 @@ public class SecurityFilter implements ContainerRequestFilter {
                 byte[] credDecoded = new BASE64Decoder().decodeBuffer(String.valueOf(authToken));
                 String credentials = new String(credDecoded);
                 StringTokenizer tokenizer = new StringTokenizer(credentials, ":");
-                String username = "[" + tokenizer.nextToken() + "]";
-                String password = "[" + tokenizer.nextToken() + "]";
+
+                String username = tokenizer.nextToken();
+                String password = tokenizer.nextToken();
 
                 for (int i = 1; i < userLogin.getAllUsers().size()+1; i++) {
-                    String checkIfUserIsLars = userLogin.findUserByUserIdReturnName(i);
-                    String checkIfPasswordIsLars = userLogin.findUserByUserIdReturnPassword(i);
+                    String hashedPassword = hashPasswordGenerator.checkPassword(password, i);
+                    String checkIfValidUser = userLogin.findUserByUserName(i).getUserName();
+                    String checkIfValidPassword = userLogin.findUserByUserName(i).getUserPassword();
 
-                    if (checkIfUserIsLars.equals(username) && checkIfPasswordIsLars.equals(password)) {
+                    if (checkIfValidUser.equals(username) && checkIfValidPassword.equals(hashedPassword)) {
                         return;
                     }
                 }

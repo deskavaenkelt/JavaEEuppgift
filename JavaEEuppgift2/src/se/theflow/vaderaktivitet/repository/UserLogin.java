@@ -26,40 +26,10 @@ public class UserLogin {
         return entityManager.find(Users.class, searchForId);
     }
 
-    public String findUserByUserIdReturnName(int searchForId) {
-        Query queryCheck = entityManager.createQuery("SELECT userName FROM Users WHERE id = '" + searchForId + "'");
-        return queryCheck.getResultList().toString();
-    }
-    /*public String findUserByUserIdReturnName2(int searchForId) {
-        users.
-
-        Query queryCheck = entityManager.createQuery("SELECT userName FROM Users WHERE id = '" + searchForId + "'");
-        return queryCheck.getResultList().toString();
-    }*/
-    public String findUserByUserIdReturnSalt(int searchForId) {
-        Query queryCheck = entityManager.createQuery("SELECT userSalt FROM Users WHERE id = '" + searchForId + "'");
-        return queryCheck.getResultList().toString();
-    }
-    public String findUserByUserIdReturnPassword(int searchForId) {
-        Query queryCheck = entityManager.createQuery("SELECT userPassword FROM Users WHERE id = '" + searchForId + "'");
-        return queryCheck.getResultList().toString();
+    public Users createNewUser(Users users1) {
+        // Persist into DB
+        entityManager.persist(users1);
+        return users1;
     }
 }
 
-
-/*
-public boolean checkIfValidUser(String userName, String userPassword) {
-        // Check if input is null
-        if (userName == null || userPassword == null) {
-            return false;
-        }
-
-        // Check if valid username
-        if ("user".equals(username) && "password".equals(password)) {
-            return;
-        }
-
-
-        return false;
-    }
-*/

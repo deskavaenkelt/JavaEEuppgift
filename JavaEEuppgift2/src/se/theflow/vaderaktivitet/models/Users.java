@@ -1,6 +1,8 @@
 package se.theflow.vaderaktivitet.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -11,12 +13,15 @@ public class Users{
     //@Column(name = aktivitetId)   - behövs ej pga samma namespace
     private Integer id;
 
+    @NotEmpty(message = "Username must be set")
+    @Size(min = 4, message = "Must be att least 4 characters long")
     private String userName;
 
     private String userSalt;
 
+    @NotEmpty(message = "Must set a user password")
+    @Size(min = 8, message = "Must be att least 8 characters long")
     private String userPassword;
-
 
 
     /*Getters and setters*/
