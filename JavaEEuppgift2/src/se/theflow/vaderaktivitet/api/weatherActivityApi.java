@@ -2,10 +2,14 @@ package se.theflow.vaderaktivitet.api;
 
 //import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
+import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
+import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
 import se.theflow.vaderaktivitet.models.Users;
+import se.theflow.vaderaktivitet.repository.UpdateCachePlaceParametersRepository;
 import se.theflow.vaderaktivitet.repository.UserLogin;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
+import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -16,13 +20,20 @@ import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
 @Path("/v1.0")
+@Consumes(MediaType.APPLICATION_JSON)   // under test
 public class weatherActivityApi extends Application {
 
+    // Inject repositorys
     @Inject
     private WeatherActivityRepository cr;
 
     @Inject
     private UserLogin userLogin;
+
+    @Inject
+    private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
+
+
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -81,4 +92,42 @@ public class weatherActivityApi extends Application {
         return Response.ok().build();
     }
 
+
+
+    // CachePlaceParametersModel
+    @GET
+    @Path("/cacheplaceparameters")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CachePlaceParametersModel> getAllPlaceParemeters() {
+        return weatherToCacheTablesRepository.getAllPlaces();
+    }
+
+    // CachePlaceParametersModel
+    @GET
+    @Path("/cacheplaceparameters/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CachePlaceParametersModel> getAllPlaceParemeters(@PathParam("id") int id) {
+        return weatherToCacheTablesRepository.findPlaceByPlaceId(id);
+    }
+
+
+
+    // Update parameters
+    /*@POST
+    @Path("secured/updateparameters")
+    public Response updateParameters(UpdateCacheParametersInDatabase updateCacheParametersInDatabase) {
+        updateCacheParametersInDatabase.updateParameters();
+
+        return Response.ok().build();
+    }*/
+
+    // Update parameters
+    @GET
+    @Path("secured/updategoteborg")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String updateGoteborg(UpdateCachePlaceParametersRepository updateCacheParametersInDatabase) {
+        updateCacheParametersInDatabase.updateGoteborg(1,11,12,13);
+
+        return "Update completed";
+    }
 }

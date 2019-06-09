@@ -195,3 +195,11 @@ SELECT @@global.time_zone, @@session.time_zone;
 
 SET GLOBAL time_zone = '+01:00';
 SET SESSION time_zone = '+01:00';
+
+
+UPDATE cachePlaceParameters
+SET temperature = 1,
+    wind = 2,
+    cloud = 3,
+WHERE place = 1,
+  AND day = 0;

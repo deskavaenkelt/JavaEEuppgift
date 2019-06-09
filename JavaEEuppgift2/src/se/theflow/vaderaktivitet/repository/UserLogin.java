@@ -10,6 +10,7 @@ import java.util.List;
 
 public class UserLogin {
 
+    // Inject Models
     @Inject
     Users users;
 
@@ -26,10 +27,10 @@ public class UserLogin {
         return entityManager.find(Users.class, searchForId);
     }
 
-    public Users createNewUser(Users users1) {
+    public Users createNewUser(Users users) {
         // Persist into DB
-        entityManager.persist(users1);
-        return users1;
+        entityManager.persist(users);
+        return users;
     }
 }
 

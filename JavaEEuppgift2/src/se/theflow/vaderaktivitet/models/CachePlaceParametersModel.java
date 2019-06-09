@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cacheplaceparameters")
-public class CachePlaceParameters {
+public class CachePlaceParametersModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,13 +13,16 @@ public class CachePlaceParameters {
 
     private Integer place;
 
+    private Integer day;
+
     private Integer temperature;
 
     private Integer wind;
 
     private Integer cloud;
 
-
+    public CachePlaceParametersModel() {
+    }
 
     /* Getters and Setters*/
     public Integer getId() {
@@ -36,6 +39,14 @@ public class CachePlaceParameters {
 
     public void setPlace(Integer place) {
         this.place = place;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
     }
 
     public Integer getTemperature() {
