@@ -11,9 +11,9 @@ public class WeatherOptimalBl {
     @Inject
     private WeatherOptimalRepository weatherOptimalRepository;
 
-    public void getActivityById(int activity) {
+    public float[] getActivityById(int activity) {
 
         // Activity 0-4
-        weatherOptimalRepository.getOptimalValuesForActivity(activity);
+        return weatherOptimalRepository.getOptimalValuesForActivity(activity);
     }
 }
