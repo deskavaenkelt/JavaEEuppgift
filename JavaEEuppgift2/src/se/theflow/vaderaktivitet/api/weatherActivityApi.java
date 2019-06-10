@@ -1,11 +1,11 @@
 package se.theflow.vaderaktivitet.api;
 
-import se.theflow.vaderaktivitet.business.CompromiseMagic;
+//import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
 import se.theflow.vaderaktivitet.models.Users;
-//import se.theflow.vaderaktivitet.repository.UserRepository;
+import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
 
@@ -13,7 +13,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
@@ -25,8 +24,8 @@ public class weatherActivityApi extends Application {
     @Inject
     private WeatherActivityRepository cr;
 
-//    @Inject
-//    private UserRepository userRepository;
+    @Inject
+    private UserRepository userRepository;
 
     @Inject
     private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
@@ -34,8 +33,8 @@ public class weatherActivityApi extends Application {
     @Inject
     private UpdateCacheParametersInDatabase updateCacheParametersInDatabase;
 
-    @Inject
-    private CompromiseMagic compromiseMagic;
+    /*@Inject
+    private CompromiseMagic compromiseMagic;*/
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -67,10 +66,10 @@ public class weatherActivityApi extends Application {
         return "OPEN CONNECTION: does not require login.";
     }
 
-/*
+
     // Users
     @GET
-    @Path("/secured/listusers")
+    @Path("listusers")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Users> getUsers() {
         return userRepository.getAllUsers();
@@ -88,7 +87,7 @@ public class weatherActivityApi extends Application {
         return userRepository.findUserByUserName(id).getUserName();
     }
 
- */
+
 /*
     @POST
     @Path("secured/createuser")
@@ -130,7 +129,7 @@ public class weatherActivityApi extends Application {
     @Produces(MediaType.TEXT_PLAIN)
     public String runMagic() {
         System.out.println("Magic is running");
-        compromiseMagic.updateAllPoints();
+//        compromiseMagic.updateAllPoints();
         return "Happy magic!";
     }
 

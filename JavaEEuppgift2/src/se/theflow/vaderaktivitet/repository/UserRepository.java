@@ -1,7 +1,5 @@
-/*
 package se.theflow.vaderaktivitet.repository;
 
-import se.theflow.vaderaktivitet.business.HashPasswordGenerator;
 import se.theflow.vaderaktivitet.models.Users;
 
 import javax.inject.Inject;
@@ -14,8 +12,8 @@ public class UserRepository {
     @Inject
     Users users;
 
-    @Inject
-    HashPasswordGenerator hashPasswordGenerator;
+    /*@Inject
+    HashPasswordGenerator hashPasswordGenerator;*/
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("VaderAktivitetPU");
 
@@ -24,19 +22,50 @@ public class UserRepository {
     @PersistenceContext(unitName = "VaderAktivitetPU")
     private EntityManager em;
 
-    public List<Users> getAllUsers() {
-        Query query = entityManager.createQuery("SELECT userName FROM Users");
-        return query.getResultList();
+    private String getUserNameById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserName();
     }
+    private String getUserSaltById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserSalt();
+    }
+    private String getUserHashedPasswordById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserPassword();
+    }
+
+    /*public List<Users> getAllUsers() {
+        Query query = entityManager.createQuery("SELECT userName FROM users");
+        return query.getResultList();
+    }*/
+
+    public int countUsersInTable() {
+        int count = 0;
+
+        for (int i = 0; i < 10; i++) {
+            if (getUserNameById(i) == null) {
+                count++;
+            } else {
+                return count;
+            }
+        }
+        return count;
+    }
+
+    /*public List<Users> getAllUsers() {
+        Query query = entityManager.createQuery("SELECT COUNT(x) FROM Users x");
+        return query.getResultList();
+    }*/
 
     public Users findUserByUserName(int searchForId) {
         // return one user.object
         return entityManager.find(Users.class, searchForId);
     }
 
-    public Users createNewUser(String userName, String userPassword) {
+    /*public Users createNewUser(String userName, String userPassword) {
 
-        String generatedSalt = hashPasswordGenerator.generateASalt(userPassword);
+        String generatedSalt = hashPasswordGenerator.generateASalt();
         String generatedHash = hashPasswordGenerator.generateHachedPassword(generatedSalt, userPassword);
 
         entityManager.getTransaction().begin();
@@ -47,15 +76,12 @@ public class UserRepository {
         newUser.setUserPassword(generatedHash);
 
         // Persist into DB
-        entityManager.persist(users);
+        entityManager.persist(usersModel);
         entityManager.getTransaction().commit();
 
 
-        return users;
-    }
+        return usersModel;
+    }*/
 
 
 }
-
- */
-

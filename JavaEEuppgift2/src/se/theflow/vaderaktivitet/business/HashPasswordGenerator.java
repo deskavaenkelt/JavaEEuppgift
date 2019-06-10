@@ -1,4 +1,3 @@
-/*
 package se.theflow.vaderaktivitet.business;
 
 
@@ -14,14 +13,14 @@ public class HashPasswordGenerator {        // work in progress
     @Inject
     private UserRepository userRepository;
 
-    public String generateASalt(String passwordToMakeHashFrom) {
+    /*public String generateASalt() {
         return generateRandomSaltString(10000);
     }
     public String generateHachedPassword(String salt, String passwordToMakeHashFrom) {
         return generateHashString(salt, passwordToMakeHashFrom);
-    }
+    }*/
 
-    public String makeHashHappen(String passwordToMakeHashFrom) {
+    /*public String makeHashHappen(String passwordToMakeHashFrom) {
         String salt = generateRandomSaltString(10000);
         String hash = generateHashString(salt, passwordToMakeHashFrom);
 
@@ -29,7 +28,7 @@ public class HashPasswordGenerator {        // work in progress
         System.out.println("Hash: " + hash);
 
         return "das hacher";
-    }
+    }*/
 
     public String checkPassword(String passwordToMakeHashFrom, int id) {
         String salt = userRepository.findUserByUserName(id).getUserSalt();
@@ -74,4 +73,3 @@ public class HashPasswordGenerator {        // work in progress
         }
     }
 }
-*/
