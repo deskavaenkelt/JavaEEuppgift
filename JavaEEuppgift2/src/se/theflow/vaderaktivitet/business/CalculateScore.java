@@ -1,7 +1,7 @@
 package se.theflow.vaderaktivitet.business;
 
 public class CalculateScore {
-    fishing, outdoorsEating, sunBathing, volleyboll, vindsurfning
+
     public float celsiusForFishing ()
 
     public float HighScoreTempVindRain(float Optimal, float Now) {

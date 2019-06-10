@@ -1,5 +1,5 @@
 package se.theflow.vaderaktivitet.business;
-
+import java.sql.*;
 import javax.inject.Inject;
 
 public class compromiseMagic {
@@ -7,9 +7,13 @@ public class compromiseMagic {
     Smhi smhi;
     @Inject
     CalculateScore calculatescore;
+    @Inject
     public void updateAllPoints(){
+        //0 = fishing, 1 = outdoorsEating, 2 = sunBathing, 3 = volleyboll, 4 = vindsurfing
+        String query = "SELECT * FROM weatherOptimal WHERE id = 1";
+        Statement st =
         float tempFloatArray[] = new float[4];
-        float cel
+        float celOptimalFishing =
         float celOptimal = 2;
         float windOptimal = 2;
         float cloudOptimal = 2;
