@@ -11,9 +11,10 @@ public class WeatherOptimalBl {
     @Inject
     private WeatherOptimalRepository weatherOptimalRepository;
 
-    public float[] getActivityById(int activity) {
+    public float[] getActivityById(int id) {
 
-        // Activity 0-4
-        return weatherOptimalRepository.getOptimalValuesForActivity(activity);
+        System.out.println("Inside WeatherOptimalBl, method getActivityById call WeatherOptimalRepository");
+        // Id 1-5
+        return weatherOptimalRepository.getOptimalValuesForActivity(id);
     }
 }

@@ -18,12 +18,12 @@ public class WeatherOptimalRepository {
     EntityManager em;
 
     // activity[0] -> id[30]
-    public float[] getOptimalValuesForActivity(int activityId) {
-        System.out.println("Update score " + activityId);
+    public float[] getOptimalValuesForActivity(int id) {
+        System.out.println("Inside WeatherOptimalRepository, method getOptimalValuesForActivity asked for id = " + id);
         float[] temporary = new float[4];
 
         entityManager.getTransaction().begin();
-        WeatherOptimalModel getOptimalWeather = em.find(WeatherOptimalModel.class, activityId);
+        WeatherOptimalModel getOptimalWeather = em.find(WeatherOptimalModel.class, id);
         temporary[0] = getOptimalWeather.getTemperature();
         temporary[1] = getOptimalWeather.getCloudy();
         temporary[2] = getOptimalWeather.getWind();
