@@ -4,6 +4,7 @@ SHOW DATABASES;
 CREATE DATABASE weatherActivityApi;
 USE weatherActivityApi;
 
+-- Drop DATABASE weatherActivityApi;
 
 
 -- Create tables
@@ -32,10 +33,10 @@ CREATE TABLE weatherOptimal (
     id          INT PRIMARY KEY AUTO_INCREMENT,
     activity    INT NOT NULL,
 
-    cloudy      INT NOT NULL,
-    rainfall    INT NOT NULL,
-    temperature INT NOT NULL,
-    wind        INT NOT NULL
+    cloudy      NUMERIC NOT NULL,
+    rainfall    NUMERIC NOT NULL,
+    temperature NUMERIC NOT NULL,
+    wind        NUMERIC NOT NULL
 );
 
 CREATE TABLE activityWeather (
@@ -64,15 +65,16 @@ CREATE TABLE cacheScores (
     place          INT NOT NULL,
     day            INT NOT NULL,
 
-    fishing        INT NOT NULL,
-    outdoorSeating INT NOT NULL,
-    sunBathing     INT NOT NULL,
-    volleyBall     INT NOT NULL,
-    windSurfing    INT NOT NULL,
+    fishing        NUMERIC NOT NULL,
+    outdoorSeating NUMERIC NOT NULL,
+    sunBathing     NUMERIC NOT NULL,
+    volleyBall     NUMERIC NOT NULL,
+    windSurfing    NUMERIC NOT NULL,
 
     FOREIGN KEY (place) REFERENCES place (id)
 );
 
+-- DROP TABLE cacheScores;
 
 
 -- Fill the tables with data
@@ -93,7 +95,7 @@ VALUES ('fishing'),
        ('volleyBall'),
        ('windSurfing');
 
---activity 0- fishing, 1 - outdoorSeating, 2- sunBathing, 3- vollyBoll, 4- windsurfing.
+-- activity 0- fishing, 1 - outdoorSeating, 2- sunBathing, 3- vollyBoll, 4- windsurfing.
 INSERT INTO weatherOptimal(activity, cloudy, rainfall, temperature, wind)
 VALUES (0, 6, 1, 12, 3),
        (1, 2, 0, 19, 5),
@@ -198,9 +200,9 @@ SET GLOBAL time_zone = '+01:00';
 SET SESSION time_zone = '+01:00';
 
 
-UPDATE cachePlaceParameters
+/*UPDATE cachePlaceParameters
 SET temperature = 1,
     wind = 2,
     cloud = 3,
 WHERE place = 1,
-  AND day = 0;
+  AND day = 0;*/
