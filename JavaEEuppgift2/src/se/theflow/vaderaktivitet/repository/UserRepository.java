@@ -3,6 +3,47 @@ package se.theflow.vaderaktivitet.repository;
 import se.theflow.vaderaktivitet.models.Users;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
+
+public class UserRepository {
+
+    // Inject Models
+    @Inject
+    Users users;
+
+    @PersistenceContext(unitName = "VaderAktivitetPU")
+    private EntityManager entityManager;
+
+    public List<Users> getAllUsers() {
+        Query query = entityManager.createQuery("SELECT userName FROM Users");
+        return query.getResultList();
+    }
+
+    public Users findUserByUserName(int searchForId) {
+        // return one user.object
+        return entityManager.find(Users.class, searchForId);
+    }
+
+    public Users createNewUser(Users users) {
+        // Persist into DB
+        entityManager.persist(users);
+        return users;
+    }
+}
+
+
+
+
+
+/*
+package se.theflow.vaderaktivitet.repository;
+
+import se.theflow.vaderaktivitet.models.Users;
+
+import javax.inject.Inject;
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,8 +53,10 @@ public class UserRepository {
     @Inject
     Users users;
 
-    /*@Inject
-    HashPasswordGenerator hashPasswordGenerator;*/
+    */
+/*@Inject
+    HashPasswordGenerator hashPasswordGenerator;*//*
+
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("VaderAktivitetPU");
 
@@ -35,10 +78,12 @@ public class UserRepository {
         return users.getUserPassword();
     }
 
-    /*public List<Users> getAllUsers() {
+    */
+/*public List<Users> getAllUsers() {
         Query query = entityManager.createQuery("SELECT userName FROM users");
         return query.getResultList();
-    }*/
+    }*//*
+
 
     public int countUsersInTable() {
         int count = 0;
@@ -53,17 +98,20 @@ public class UserRepository {
         return count;
     }
 
-    /*public List<Users> getAllUsers() {
+    */
+/*public List<Users> getAllUsers() {
         Query query = entityManager.createQuery("SELECT COUNT(x) FROM Users x");
         return query.getResultList();
-    }*/
+    }*//*
+
 
     public Users findUserByUserName(int searchForId) {
         // return one user.object
         return entityManager.find(Users.class, searchForId);
     }
 
-    /*public Users createNewUser(String userName, String userPassword) {
+    */
+/*public Users createNewUser(String userName, String userPassword) {
 
         String generatedSalt = hashPasswordGenerator.generateASalt();
         String generatedHash = hashPasswordGenerator.generateHachedPassword(generatedSalt, userPassword);
@@ -81,7 +129,8 @@ public class UserRepository {
 
 
         return usersModel;
-    }*/
+    }*//*
 
 
-}
+
+}*/
