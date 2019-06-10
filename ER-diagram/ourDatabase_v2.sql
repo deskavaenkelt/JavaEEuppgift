@@ -93,12 +93,13 @@ VALUES ('fishing'),
        ('volleyBall'),
        ('windSurfing');
 
+--activity 0- fishing, 1 - outdoorSeating, 2- sunBathing, 3- vollyBoll, 4- windsurfing.
 INSERT INTO weatherOptimal(activity, cloudy, rainfall, temperature, wind)
-VALUES (0, 0, 0, 0, 0),
-       (1, 0, 0, 0, 0),
-       (2, 0, 0, 0, 0),
-       (3, 0, 0, 0, 0),
-       (4, 0, 0, 0, 0);
+VALUES (0, 6, 1, 12, 3),
+       (1, 2, 0, 19, 5),
+       (2, 0, 0, 25, 7),
+       (3, 4, 0, 18, 0),
+       (4, 3, 0, 15, 12);
 
 INSERT INTO cachePlaceParameters(place, day, temperature, wind, cloud)
 VALUES (1, 0, 0, 0, 0),

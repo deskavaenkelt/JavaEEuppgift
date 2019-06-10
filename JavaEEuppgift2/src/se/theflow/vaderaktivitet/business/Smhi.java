@@ -17,10 +17,10 @@ import java.util.Scanner;
 import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
-public class smhi {
+public class Smhi {
 
-        public static void main(String[] args) {
-
+ //       public static void main(String[] args) {
+/*
             Scanner scan = new Scanner(System.in);
             String formattedDate = "";
             try {
@@ -78,9 +78,9 @@ public class smhi {
 
 
 
-
-    }
-    public static float[] weatherFetcher(String currentTime, String whatUrl){
+*/
+    //}
+    public float[] weatherFetcher(String currentTime, String whatUrl){
         //Assigning variables
         float weatherNow[] = new float[4];
         String currentCelsius = "";
@@ -203,6 +203,7 @@ public class smhi {
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
+                return weatherNow;
 
 
                 // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
@@ -218,7 +219,7 @@ public class smhi {
 
     }
 
-    public static String urlGenerator (int locationId){
+    public String urlGenerator (int locationId){
         String myUrl = "";
         //Göteborg
         if(locationId == 1){
@@ -247,7 +248,7 @@ public class smhi {
         }
         return myUrl;
     }
-    public static String timeAdder (int addedHours){
+    public String timeAdder (int addedHours){
             LocalDateTime myObj = LocalDateTime.now();
             LocalDateTime newTime = myObj.plusHours(addedHours);
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
