@@ -140,11 +140,12 @@ public class weatherActivityApi extends Application {
     }
 
     @GET
-    @Path("magic")
+    @Path("secured/magic")
     @Produces(MediaType.TEXT_PLAIN)
     public String runMagic() {
         System.out.println("Magic is running");
         compromiseMagic.updateAllPoints();
+        return "Happy magic!";
     }
 
 
