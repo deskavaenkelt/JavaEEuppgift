@@ -8,6 +8,8 @@ import java.util.List;
 
 public class WeatherToCacheTablesRepository {
 
+    // LEGACY enbart kvar för att se hur metoderna är skrivna
+
     // Inject Models
     @Inject
     CachePlaceParametersModel cachePlaceParametersModel;
