@@ -2,7 +2,7 @@ package se.theflow.vaderaktivitet.business;
 import java.sql.*;
 import javax.inject.Inject;
 
-public class compromiseMagic {
+public class CompromiseMagic {
     @Inject
     Smhi smhi;
     @Inject
