@@ -37,22 +37,6 @@ public class WeatherToCacheTablesRepository {
         return query.getResultList();
     }
 
-    public void setCachePlaceParameters(int place, int day, int updateTemperature, int updateWind, int updateCloud) {
-
-        // String query = "UPDATE cachePlaceParametersModel SET temperature = ?, wind = ?, cloud = ?, WHERE place = ?, AND day = ?";
-
-
-        //cachePlaceParametersModel.s
-        Query query = entityManager.createQuery("UPDATE cachePlaceParameters\n" +
-                "SET temperature = '" + updateTemperature + "',\n" +
-                "    wind = '" + updateWind + "',\n" +
-                "    cloud = '" + updateCloud + "',\n" +
-                "WHERE place = '" + place + "',\n" +
-                "  AND day = '" + day + "'");
-
-        //int updateCount = entityManager.e
-    }
-
 
     public CachePlaceParametersModel findPlace(int place) {
         return entityManager.find(CachePlaceParametersModel.class, place);
