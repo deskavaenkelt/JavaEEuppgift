@@ -17,9 +17,7 @@ public class CalculateScore {
     private int vindPoint;
     private int cloudPoint;
     private int rainPoint;
-
-    public static void main(String[] args) {
-        smhi.weatherFetcher(smhi.timeAdder(0), smhi.urlGenerator(Place.class.getName()));
+/*    public static void main(String[] args) {
         int tempNow = 1;
         int vindNow = 1;
         int cloudNow = 1;
@@ -35,10 +33,10 @@ public class CalculateScore {
         HighScoreTempVindRain(rainOptimal, rainNow);
         HighScoreCloud(cloudOptimal, cloudNow);
     }
-
-    public static int HighScoreTempVindRain(int Optimal, int Now) {
-        int Difference;
-        int Point = 0;
+*/
+    public float HighScoreTempVindRain(float Optimal, float Now) {
+        float Difference;
+        float Point = 0;
         Difference = Optimal-Now;
         if(Difference == 0) {
             Point = 15;
@@ -76,9 +74,9 @@ public class CalculateScore {
         return Point;
     }
 
-    public static int HighScoreCloud(int Optimal, int Now) {
-        int Difference;
-        int Point = 0;
+    public int HighScoreCloud(float Optimal, float Now) {
+        float Difference;
+        float Point = 0;
         Difference = Optimal-Now;
         if(Difference == 0) {
             Point = 15;
