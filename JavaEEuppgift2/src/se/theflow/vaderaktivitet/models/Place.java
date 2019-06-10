@@ -47,7 +47,4 @@ public class Place {
     public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
-
-    /* Getter och Setters //dsve =P */
-
 }
