@@ -9,6 +9,7 @@ public class compromiseMagic {
     CalculateScore calculatescore;
     public void updateAllPoints(){
         float tempFloatArray[] = new float[4];
+        float cel
         float celOptimal = 2;
         float windOptimal = 2;
         float cloudOptimal = 2;
