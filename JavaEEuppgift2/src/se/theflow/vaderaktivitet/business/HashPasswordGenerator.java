@@ -1,7 +1,6 @@
 package se.theflow.vaderaktivitet.business;
 
 import se.theflow.vaderaktivitet.repository.UserLogin;
-
 import javax.inject.Inject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -31,8 +31,6 @@ public class Smhi {
         int loopStop = 19;
 
         try {
-
-
                 String url = whatUrl;
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -61,11 +59,7 @@ public class Smhi {
                     if(newString.indexOf(currentTime) > -1){
                         System.out.println("found it");
                         break;
-
                     }
-
-
-
                 }
             String [] arrOfStr = newString.split("unit");
 
@@ -94,15 +88,9 @@ public class Smhi {
                     System.out.println("rain obtained!");
                     break;
                 }
-
-
-
             }
 
-
             System.out.println("got out of forloop");
-
-
 
                 //Removing trash
                 currentCelsius = currentCelsius.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namet", "");
@@ -127,7 +115,6 @@ public class Smhi {
                 currentWindSpeed = currentWindSpeed.replace("]", "").replace("[", "");
                 avgRainChance = avgRainChance.replace("]", "").replace("[", "");
 
-
                 System.out.println("The current weather: " + currentCelsius + " Degrees celsius, with "
                         + currentCloudy + " /8ths cloud-coverage, and a windspeed of "
                         + currentWindSpeed + " m/s and an average rainfall of " + avgRainChance);
@@ -141,19 +128,13 @@ public class Smhi {
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
                 return weatherNow;
-
-
-                // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
-
-
             }
+
             catch(Exception e){
                 System.out.println(e);
             }
 
-
         return weatherNow;
-
     }
 
     public String urlGenerator (int locationId){
@@ -192,7 +173,6 @@ public class Smhi {
             String formattedDate = newTime.format(myFormatObj);
             return formattedDate;
     }
-
 }
 
 
