@@ -4,7 +4,7 @@ import se.theflow.vaderaktivitet.repository.CacheScoresRepository;
 
 import javax.inject.Inject;
 
-public class UpdateCacheScores {
+public class CacheScoresBl {
 
     // Inject Repository
     @Inject
