@@ -1,3 +1,4 @@
+/*
 package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.HashPasswordGenerator;
@@ -56,3 +57,5 @@ public class SecurityFilter implements ContainerRequestFilter {
         }
     }
 }
+
+ */

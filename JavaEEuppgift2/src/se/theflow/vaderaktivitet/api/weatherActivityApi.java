@@ -5,7 +5,7 @@ import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
 import se.theflow.vaderaktivitet.models.Users;
-import se.theflow.vaderaktivitet.repository.UserRepository;
+//import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
 
@@ -25,8 +25,8 @@ public class weatherActivityApi extends Application {
     @Inject
     private WeatherActivityRepository cr;
 
-    @Inject
-    private UserRepository userRepository;
+//    @Inject
+//    private UserRepository userRepository;
 
     @Inject
     private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
@@ -67,6 +67,7 @@ public class weatherActivityApi extends Application {
         return "OPEN CONNECTION: does not require login.";
     }
 
+/*
     // Users
     @GET
     @Path("/secured/listusers")
@@ -74,6 +75,8 @@ public class weatherActivityApi extends Application {
     public List<Users> getUsers() {
         return userRepository.getAllUsers();
     }
+
+
 
     @GET
     @Path("users/{id}")
@@ -85,6 +88,8 @@ public class weatherActivityApi extends Application {
         return userRepository.findUserByUserName(id).getUserName();
     }
 
+ */
+/*
     @POST
     @Path("secured/createuser")
     public Response createNewUserAccount(Users users) {
@@ -92,7 +97,7 @@ public class weatherActivityApi extends Application {
 
         return Response.ok().build();
     }
-
+*/
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")
