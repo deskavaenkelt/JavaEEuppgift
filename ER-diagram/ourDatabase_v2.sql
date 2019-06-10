@@ -206,3 +206,14 @@ SET temperature = 1,
     cloud = 3,
 WHERE place = 1,
   AND day = 0;*/
+
+/*
+-- mySQL-frågemall för Java för att visa vilken ort som är mest lämplig för vilken aktivitet
+-- för en verklig applikation skall bara place.name visas
+-- poängen per plats är irrelevant för användaren 
+-- vi visar den för att visa att applikationen har önskad funktionalitet
+SELECT sunBathing, place.name
+FROM cacheScores INNER JOIN place
+ON cacheScores.place = place.Id
+ORDER BY sunBathing ASC;
+*/
