@@ -1,18 +1,6 @@
 package se.theflow.vaderaktivitet.business;
 
-import se.theflow.vaderaktivitet.models.Place;
-
 public class CalculateScore {
-
-    private int tempDifference;
-    private int vindDifference;
-    private int cloudDifference;
-    private int rainDifference;
-
-    private int tempPoint;
-    private int vindPoint;
-    private int cloudPoint;
-    private int rainPoint;
 
     public float HighScoreTempVindRain(float Optimal, float Now) {
         float Difference;
