@@ -27,6 +27,16 @@
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/secured">Secured</a></li>
       <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/secured/listusers">List Users</a></li>
     </ul>
+
+
+    <ul style="list-style-type:none;">
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/fishing">Fishing</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/outdoorseating">Outdoorseating</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/sunbathing">Sunbathing</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/volleyball">Volleyball</a></li>
+      <li><a href="http://localhost:8080/JavaEEuppgift2_war_exploded/weatherActivityApi/v1.0/windsurfing">Windsurfing</a></li>
+    </ul>
+
   </article>
 
   <article>
