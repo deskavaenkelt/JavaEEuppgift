@@ -222,27 +222,27 @@ public class Smhi {
     public String urlGenerator (int locationId){
         String myUrl = "";
         //Göteborg
-        if(locationId == 0){
+        if(locationId == 1){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.85/lat/57.66/data.json";
             return myUrl;
         }
         //Kungsbacka
-        else if(locationId == 1){
+        else if(locationId == 2){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.96/lat/57.49/data.json";
             return myUrl;
         }
         //Åsa
-        else if(locationId == 2){
+        else if(locationId == 3){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.07/lat/57.33/data.json";
             return myUrl;
         }
         //Varberg
-        else if(locationId == 3){
+        else if(locationId == 4){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.25/lat/57.10/data.json";
             return myUrl;
         }
         //Falkenberg
-        else if(locationId == 4){
+        else if(locationId == 5){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.50/lat/56.88/data.json";
             return myUrl;
         }
