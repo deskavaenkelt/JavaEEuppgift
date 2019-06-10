@@ -2,7 +2,7 @@ package se.theflow.vaderaktivitet.business;
 
 import javax.inject.Inject;
 
-public class CompromiseMagic {
+public class  CompromiseMagic {
     @Inject
     Smhi smhi;
     @Inject

@@ -1,10 +1,8 @@
 package se.theflow.vaderaktivitet.api;
 
-
 import se.theflow.vaderaktivitet.business.HashPasswordGenerator;
 import se.theflow.vaderaktivitet.repository.UserLogin;
 import sun.misc.BASE64Decoder;
-
 import javax.inject.Inject;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -49,8 +47,6 @@ public class SecurityFilter implements ContainerRequestFilter {
                         return;
                     }
                 }
-
-
             }
             Response unautherizedStatus = Response
                     .status(Response.Status.UNAUTHORIZED)
