@@ -2,6 +2,7 @@ package se.theflow.vaderaktivitet.api;
 
 //import se.theflow.vaderaktivitet.business.RequestsFromApi;
 
+import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
@@ -35,6 +36,9 @@ public class weatherActivityApi extends Application {
 
     @Inject
     private UpdateCacheParametersInDatabase updateCacheParametersInDatabase;
+
+    @Inject
+    private CompromiseMagic compromiseMagic;
 
 
 
@@ -135,6 +139,13 @@ public class weatherActivityApi extends Application {
         return "Update completed";
     }
 
+    @GET
+    @Path("magic")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String runMagic() {
+        System.out.println("Magic is running");
+        compromiseMagic.updateAllPoints();
+    }
 
 
     /*Get points for diffrent places AlexO*/
