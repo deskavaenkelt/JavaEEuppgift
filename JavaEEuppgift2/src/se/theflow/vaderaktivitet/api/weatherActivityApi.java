@@ -1,6 +1,6 @@
 package se.theflow.vaderaktivitet.api;
 
-//import se.theflow.vaderaktivitet.business.CompromiseMagic;
+import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
@@ -33,8 +33,8 @@ public class weatherActivityApi extends Application {
     @Inject
     private UpdateCacheParametersInDatabase updateCacheParametersInDatabase;
 
-    /*@Inject
-    private CompromiseMagic compromiseMagic;*/
+    @Inject
+    private CompromiseMagic compromiseMagic;
 
     /*Get all the places info (for testing) AlexO*/
     @GET
