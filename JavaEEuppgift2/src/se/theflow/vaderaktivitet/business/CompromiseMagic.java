@@ -1,4 +1,4 @@
-/*
+
 package se.theflow.vaderaktivitet.business;
 
 import javax.inject.Inject;
@@ -122,4 +122,4 @@ public class  CompromiseMagic {
 
         }
     }
-}*/
+}

@@ -1,6 +1,7 @@
 package se.theflow.vaderaktivitet.api;
 
 //import se.theflow.vaderaktivitet.business.CompromiseMagic;
+import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
@@ -33,8 +34,8 @@ public class weatherActivityApi extends Application {
     @Inject
     private UpdateCacheParametersInDatabase updateCacheParametersInDatabase;
 
-    /*@Inject
-    private CompromiseMagic compromiseMagic;*/
+    @Inject
+    private CompromiseMagic compromiseMagic;
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -75,7 +76,6 @@ public class weatherActivityApi extends Application {
         return userRepository.getAllUsers();
     }
 
- */
 
     @GET
     @Path("countusers")
@@ -83,6 +83,8 @@ public class weatherActivityApi extends Application {
     public int listUsers(){
         return userRepository.countUsersInTable();
     }
+
+ */
 
 
 
@@ -138,7 +140,7 @@ public class weatherActivityApi extends Application {
     @Produces(MediaType.TEXT_PLAIN)
     public String runMagic() {
         System.out.println("Magic is running");
-//        compromiseMagic.updateAllPoints();
+        compromiseMagic.updateAllPoints();
         return "Happy magic!";
     }
 
