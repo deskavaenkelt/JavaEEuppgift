@@ -1,5 +1,7 @@
 package se.theflow.vaderaktivitet.business;
 
+import se.theflow.vaderaktivitet.models.Place;
+
 public class CalculateScore {
 
     //tabell i sql cachePlaceParameters
@@ -17,6 +19,7 @@ public class CalculateScore {
     private int rainPoint;
 
     public static void main(String[] args) {
+        smhi.weatherFetcher(0, smhi.urlGenerator(Place.class.getName()))
         int tempNow = 1;
         int vindNow = 1;
         int cloudNow = 1;

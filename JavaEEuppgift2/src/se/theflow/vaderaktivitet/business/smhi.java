@@ -62,8 +62,14 @@ public class smhi {
                             weatherFetcher(formattedDate, urlGenerator("gothenburg"));
                         }else {
                                 System.out.println("Finished printing");
+                                break;
                             }}
                         break;
+
+                    case 4:
+                        tempTime = LocalDateTime.now();
+                        tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+                        tempTimeString = tempTime.format(tempFormat);
 
                 }
             }catch (InputMismatchException e) {
@@ -197,6 +203,7 @@ public class smhi {
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
+
 
                 // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
 
