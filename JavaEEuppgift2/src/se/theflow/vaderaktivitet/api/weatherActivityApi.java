@@ -85,14 +85,14 @@ public class weatherActivityApi extends Application {
         return userRepository.findUserByUserName(id).getUserName();
     }
 
-    @POST
+/*    @POST
     @Path("secured/createuser")
     public Response createNewUserAccount(Users users) {
-        userRepository.createNewUser(users);
+        userRepository.createNewUser(users, );
 
         return Response.ok().build();
     }
-
+*/
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")
