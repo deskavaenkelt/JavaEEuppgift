@@ -1,7 +1,7 @@
 package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.HashPasswordGenerator;
-import se.theflow.vaderaktivitet.repository.UserLogin;
+import se.theflow.vaderaktivitet.repository.UserRepository;
 import sun.misc.BASE64Decoder;
 import javax.inject.Inject;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -19,7 +19,7 @@ public class SecurityFilter implements ContainerRequestFilter {
     private static final String SECURED_URL_PREFIX = "secured";
 
     @Inject
-    private UserLogin userLogin;
+    private UserRepository userRepository;
 
     @Inject
     HashPasswordGenerator hashPasswordGenerator;
@@ -38,10 +38,10 @@ public class SecurityFilter implements ContainerRequestFilter {
                 String username = tokenizer.nextToken();
                 String password = tokenizer.nextToken();
 
-                for (int i = 1; i < userLogin.getAllUsers().size()+1; i++) {
+                for (int i = 1; i < userRepository.getAllUsers().size()+1; i++) {
                     String hashedPassword = hashPasswordGenerator.checkPassword(password, i);
-                    String checkIfValidUser = userLogin.findUserByUserName(i).getUserName();
-                    String checkIfValidPassword = userLogin.findUserByUserName(i).getUserPassword();
+                    String checkIfValidUser = userRepository.findUserByUserName(i).getUserName();
+                    String checkIfValidPassword = userRepository.findUserByUserName(i).getUserPassword();
 
                     if (checkIfValidUser.equals(username) && checkIfValidPassword.equals(hashedPassword)) {
                         return;

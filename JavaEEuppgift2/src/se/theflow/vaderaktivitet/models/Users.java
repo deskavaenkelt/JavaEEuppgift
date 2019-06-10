@@ -23,6 +23,15 @@ public class Users{
     @Size(min = 8, message = "Must be att least 8 characters long")
     private String userPassword;
 
+    public Users() {
+    }
+
+    public Users(@NotEmpty(message = "Username must be set") @Size(min = 4, message = "Must be att least 4 characters long") String userName, String userSalt, @NotEmpty(message = "Must set a user password") @Size(min = 8, message = "Must be att least 8 characters long") String userPassword) {
+        this.userName = userName;
+        this.userSalt = userSalt;
+        this.userPassword = userPassword;
+    }
+
     /*Getters and setters*/
     public Integer getId() {
         return id;

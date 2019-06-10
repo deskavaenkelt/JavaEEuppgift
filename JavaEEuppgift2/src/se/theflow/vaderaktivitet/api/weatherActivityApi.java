@@ -5,7 +5,7 @@ import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
 import se.theflow.vaderaktivitet.models.Users;
-import se.theflow.vaderaktivitet.repository.UserLogin;
+import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
 
@@ -26,7 +26,7 @@ public class weatherActivityApi extends Application {
     private WeatherActivityRepository cr;
 
     @Inject
-    private UserLogin userLogin;
+    private UserRepository userRepository;
 
     @Inject
     private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
@@ -72,7 +72,7 @@ public class weatherActivityApi extends Application {
     @Path("/secured/listusers")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Users> getUsers() {
-        return userLogin.getAllUsers();
+        return userRepository.getAllUsers();
     }
 
     @GET
@@ -81,14 +81,14 @@ public class weatherActivityApi extends Application {
     // id 1-4,
     // Return one user object
     public String getId(@PathParam("id") int id) {
-        //return userLogin.findUserByUserName(id);
-        return userLogin.findUserByUserName(id).getUserName();
+        //return userRepository.findUserByUserName(id);
+        return userRepository.findUserByUserName(id).getUserName();
     }
 
     @POST
     @Path("secured/createuser")
     public Response createNewUserAccount(Users users) {
-        userLogin.createNewUser(users);
+        userRepository.createNewUser(users);
 
         return Response.ok().build();
     }
