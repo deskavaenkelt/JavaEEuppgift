@@ -1,6 +1,7 @@
 package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.CompromiseMagic;
+import se.theflow.vaderaktivitet.business.CreateNewUser;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
@@ -34,6 +36,9 @@ public class weatherActivityApi extends Application {
 
     @Inject
     private CompromiseMagic compromiseMagic;
+
+    @Inject
+    CreateNewUser createNewUser;
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -96,15 +101,13 @@ public class weatherActivityApi extends Application {
     }
 
 
-/*
-    @POST
+    @GET
     @Path("secured/createuser")
-    public Response createNewUserAccount(Users users) {
-        userRepository.createNewUser(users);
+    public Response createNewUserAccount() {
+        createNewUser.createNewUser("user", "password");
 
         return Response.ok().build();
     }
-*/
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")

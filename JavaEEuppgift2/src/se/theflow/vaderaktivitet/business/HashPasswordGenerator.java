@@ -13,12 +13,12 @@ public class HashPasswordGenerator {        // work in progress
     @Inject
     private UserRepository userRepository;
 
-    /*public String generateASalt() {
+    public String generateASalt() {
         return generateRandomSaltString(10000);
     }
     public String generateHachedPassword(String salt, String passwordToMakeHashFrom) {
         return generateHashString(salt, passwordToMakeHashFrom);
-    }*/
+    }
 
     /*public String makeHashHappen(String passwordToMakeHashFrom) {
         String salt = generateRandomSaltString(10000);
