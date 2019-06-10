@@ -134,4 +134,40 @@ public class weatherActivityApi extends Application {
 
         return "Update completed";
     }
+
+
+
+    /*Get points for diffrent places AlexO*/
+    @GET
+    @Path("/fishing")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getFishing(){
+        return cr.getFishingPoints();
+    }
+    @GET
+    @Path("/outdoorseating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getOutdoorSeating(){
+        return cr.getOutdoorSeatingPoints();
+    }
+    @GET
+    @Path("/sunbathing")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getSunBathing(){
+        return cr.getSunBathingPoints();
+    }
+    @GET
+    @Path("/volleyball")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getVolleyball(){
+        return cr.getVolleyBallPoints();
+    }
+    @GET
+    @Path("/windsurfing")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getWindsurfing(){
+        return cr.getWindSurfingPoints();
+    }
+
+
 }
