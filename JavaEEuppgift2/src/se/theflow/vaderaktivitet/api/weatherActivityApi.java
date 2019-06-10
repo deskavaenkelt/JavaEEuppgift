@@ -4,7 +4,6 @@ import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
-import se.theflow.vaderaktivitet.models.Users;
 import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
@@ -22,7 +21,7 @@ public class weatherActivityApi extends Application {
 
     // Inject repositorys
     @Inject
-    private WeatherActivityRepository cr;
+    private WeatherActivityRepository weatherActivityRepository;
 
     @Inject
     private UserRepository userRepository;
@@ -41,7 +40,7 @@ public class weatherActivityApi extends Application {
     @Path("/place")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getAllPlaces(){
-        return cr.getAllPlaces();
+        return weatherActivityRepository.getAllPlaces();
     }
 
     /*Test the API AlexO*/
@@ -148,30 +147,30 @@ public class weatherActivityApi extends Application {
     @Path("/fishing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getFishing(){
-        return cr.getFishingPoints();
+        return weatherActivityRepository.getFishingPoints();
     }
     @GET
     @Path("/outdoorseating")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getOutdoorSeating(){
-        return cr.getOutdoorSeatingPoints();
+        return weatherActivityRepository.getOutdoorSeatingPoints();
     }
     @GET
     @Path("/sunbathing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getSunBathing(){
-        return cr.getSunBathingPoints();
+        return weatherActivityRepository.getSunBathingPoints();
     }
     @GET
     @Path("/volleyball")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getVolleyball(){
-        return cr.getVolleyBallPoints();
+        return weatherActivityRepository.getVolleyBallPoints();
     }
     @GET
     @Path("/windsurfing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getWindsurfing(){
-        return cr.getWindSurfingPoints();
+        return weatherActivityRepository.getWindSurfingPoints();
     }
 }
