@@ -2,8 +2,6 @@ package se.theflow.vaderaktivitet.business;
 
 public class CalculateScore {
 
-
-
     public float HighScoreTempVindRain(float Optimal, float Now) {
         float Difference;
         float Point = 100;

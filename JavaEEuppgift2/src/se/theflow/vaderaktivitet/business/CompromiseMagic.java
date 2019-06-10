@@ -1,5 +1,5 @@
 package se.theflow.vaderaktivitet.business;
-import java.sql.*;
+
 import javax.inject.Inject;
 
 public class CompromiseMagic {
