@@ -19,7 +19,7 @@ public class CalculateScore {
     private int rainPoint;
 
     public static void main(String[] args) {
-        smhi.weatherFetcher(0, smhi.urlGenerator(Place.class.getName()))
+        smhi.weatherFetcher(smhi.timeAdder(0), smhi.urlGenerator(Place.class.getName()));
         int tempNow = 1;
         int vindNow = 1;
         int cloudNow = 1;

@@ -39,7 +39,7 @@ public class weatherActivityApi extends Application {
     @GET
     @Path("/place")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Place> getCustomers(){
+    public List<Place> getAllPlaces(){
         return cr.getAllPlaces();
     }
 
