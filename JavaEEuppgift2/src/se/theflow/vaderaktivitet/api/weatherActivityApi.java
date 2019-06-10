@@ -37,8 +37,6 @@ public class weatherActivityApi extends Application {
     @Inject
     private CompromiseMagic compromiseMagic;
 
-
-
     /*Get all the places info (for testing) AlexO*/
     @GET
     @Path("/place")
@@ -46,7 +44,6 @@ public class weatherActivityApi extends Application {
     public List<Place> getAllPlaces(){
         return cr.getAllPlaces();
     }
-
 
     /*Test the API AlexO*/
     @GET
@@ -96,8 +93,6 @@ public class weatherActivityApi extends Application {
         return Response.ok().build();
     }
 
-
-
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")
@@ -113,17 +108,6 @@ public class weatherActivityApi extends Application {
     public List<CachePlaceParametersModel> getAllPlaceParemeters(@PathParam("id") int id) {
         return weatherToCacheTablesRepository.findPlaceByPlaceId(id);
     }
-
-
-
-    // Update parameters
-    /*@POST
-    @Path("secured/updateparameters")
-    public Response updateParameters(UpdateCacheParametersInDatabase updateCacheParametersInDatabase) {
-        updateCacheParametersInDatabase.updateParameters();
-
-        return Response.ok().build();
-    }*/
 
     // Update parameters
     @GET
@@ -177,6 +161,4 @@ public class weatherActivityApi extends Application {
     public List<Place> getWindsurfing(){
         return cr.getWindSurfingPoints();
     }
-
-
 }
