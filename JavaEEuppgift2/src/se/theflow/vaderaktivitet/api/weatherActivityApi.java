@@ -77,12 +77,12 @@ public class weatherActivityApi extends Application {
 
  */
 
-    @GET
+    /*@GET
     @Path("countusers")
     @Produces(MediaType.APPLICATION_JSON)
     public int listUsers(){
         return userRepository.countUsersInTable();
-    }
+    }*/
 
 
 
