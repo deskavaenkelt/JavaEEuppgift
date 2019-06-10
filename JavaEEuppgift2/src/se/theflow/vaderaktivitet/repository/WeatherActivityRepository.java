@@ -17,28 +17,28 @@ public class WeatherActivityRepository {
 
     public List<Place> getFishingPoints() {
         /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScores c order by fishing");
+        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by fishing");
         return query.getResultList();
     }
     public List<Place> getOutdoorSeatingPoints() {
         /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScores c order by outdoorSeating");
+        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by outdoorSeating");
         return query.getResultList();
     }
     public List<Place> getSunBathingPoints() {
         /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScores c order by sunBathing");
+        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by sunBathing");
         return query.getResultList();
     }
 
     public List<Place> getVolleyBallPoints() {
         /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScores c order by volleyBall");
+        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by volleyBall");
         return query.getResultList();
     }
     public List<Place> getWindSurfingPoints() {
         /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScores c order by windSurfing");
+        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by windSurfing");
         return query.getResultList();
     }
 
