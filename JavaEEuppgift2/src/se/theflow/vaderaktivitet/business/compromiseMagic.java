@@ -11,7 +11,7 @@ public class compromiseMagic {
     WeatherOptimalBl weatheroptimalbl;
     public void updateAllPoints(){
         //0 = fishing, 1 = outdoorsEating, 2 = sunBathing, 3 = volleyboll, 4 = vindsurfing
-        for(int id = 0; id <= 5; id++){
+        for(int id = 0; id < 5; id++){
         weatheroptimalbl.getActivityById(1);
         float tempFloatArray[] = new float[4];
         float tempOptimalArray[] = new float[4];
