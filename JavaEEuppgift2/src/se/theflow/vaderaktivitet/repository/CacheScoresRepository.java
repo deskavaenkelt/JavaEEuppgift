@@ -17,7 +17,7 @@ public class CacheScoresRepository {
     EntityManager em;
 
     // id[1] -> id[30]
-    public void updateScores(int id, int fishing, int outdoorSeating, int sunBathing, int volleyBall, int windSurfing) {
+    public void updateScores(int id, float fishing, float outdoorSeating, float sunBathing, float volleyBall, float windSurfing) {
         System.out.println("Update score " + id);
 
         entityManager.getTransaction().begin();

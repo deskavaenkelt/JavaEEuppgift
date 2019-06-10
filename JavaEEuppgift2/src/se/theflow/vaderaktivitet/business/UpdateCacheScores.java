@@ -10,7 +10,7 @@ public class UpdateCacheScores {
     @Inject
     private CacheScoresRepository cacheScoresRepository;
 
-    public void updateCacheScoreById(int id, int fishing, int outdoorSeating, int sunBathing, int volleyBall, int windSurfing) {
+    public void updateCacheScoreById(int id, float fishing, float outdoorSeating, float sunBathing, float volleyBall, float windSurfing) {
 
         // Göteborg day0 = id[1] , day5 = id[6]
         // Kungsbacka day0 = id[7] , day5 = id[12]
