@@ -54,7 +54,7 @@ public class CalculateScore {
         return Point;
     }
 
-    public int HighScoreCloud(float Optimal, float Now) {
+    public float HighScoreCloud(float Optimal, float Now) {
         float Difference;
         float Point = 0;
         Difference = Optimal-Now;
