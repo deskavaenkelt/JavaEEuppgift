@@ -33,6 +33,9 @@ public class weatherActivityApi extends Application {
     @Inject
     private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
 
+    @Inject
+    private UpdateCacheParametersInDatabase updateCacheParametersInDatabase;
+
 
 
     /*Get all the places info (for testing) AlexO*/
@@ -125,8 +128,9 @@ public class weatherActivityApi extends Application {
     @GET
     @Path("secured/updategoteborg")
     @Produces(MediaType.TEXT_PLAIN)
-    public String updateGoteborg(UpdateCachePlaceParametersRepository updateCacheParametersInDatabase) {
-        updateCacheParametersInDatabase.updateGoteborg(1,11,12,13);
+    public String updateGoteborg() {
+        System.out.println("dummy Goteborg");
+        updateCacheParametersInDatabase.dummyGoteborg();
 
         return "Update completed";
     }
