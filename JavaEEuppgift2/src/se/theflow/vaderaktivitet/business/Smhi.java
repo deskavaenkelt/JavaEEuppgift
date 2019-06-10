@@ -17,10 +17,10 @@ import java.util.Scanner;
 import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
-public class smhi {
+public class Smhi {
 
-        public static void main(String[] args) {
-
+ //       public static void main(String[] args) {
+/*
             Scanner scan = new Scanner(System.in);
             String formattedDate = "";
             try {
@@ -62,8 +62,14 @@ public class smhi {
                             weatherFetcher(formattedDate, urlGenerator("gothenburg"));
                         }else {
                                 System.out.println("Finished printing");
+                                break;
                             }}
                         break;
+
+                    case 4:
+                        tempTime = LocalDateTime.now();
+                        tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+                        tempTimeString = tempTime.format(tempFormat);
 
                 }
             }catch (InputMismatchException e) {
@@ -72,9 +78,9 @@ public class smhi {
 
 
 
-
-    }
-    public static float[] weatherFetcher(String currentTime, String whatUrl){
+*/
+    //}
+    public float[] weatherFetcher(String currentTime, String whatUrl){
         //Assigning variables
         float weatherNow[] = new float[4];
         String currentCelsius = "";
@@ -197,6 +203,8 @@ public class smhi {
                 weatherNow[1] = floatCloudiness;
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
+                return weatherNow;
+
 
                 // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
 
@@ -211,31 +219,36 @@ public class smhi {
 
     }
 
-    public static String urlGenerator (String location){
+    public String urlGenerator (int locationId){
         String myUrl = "";
-        if(location.contains("gothenburg")){
+        //Göteborg
+        if(locationId == 1){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.85/lat/57.66/data.json";
             return myUrl;
         }
-        else if(location.contains("kungsbacka")){
+        //Kungsbacka
+        else if(locationId == 2){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.96/lat/57.49/data.json";
             return myUrl;
         }
-        else if(location.contains("åsa")){
+        //Åsa
+        else if(locationId == 3){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.07/lat/57.33/data.json";
             return myUrl;
         }
-        else if(location.contains("varberg")){
+        //Varberg
+        else if(locationId == 4){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.25/lat/57.10/data.json";
             return myUrl;
         }
-        else if(location.contains("falkenberg")){
+        //Falkenberg
+        else if(locationId == 5){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.50/lat/56.88/data.json";
             return myUrl;
         }
         return myUrl;
     }
-    public static String timeAdder (int addedHours){
+    public String timeAdder (int addedHours){
             LocalDateTime myObj = LocalDateTime.now();
             LocalDateTime newTime = myObj.plusHours(addedHours);
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");

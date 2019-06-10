@@ -1,13 +1,13 @@
 package se.theflow.vaderaktivitet.repository;
 
-import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
+import se.theflow.vaderaktivitet.models.CacheScoresModel;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
-public class UpdateCachePlaceParametersRepository {
+public class CacheScoresRepository {
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("VaderAktivitetPU");
 
@@ -17,14 +17,17 @@ public class UpdateCachePlaceParametersRepository {
     EntityManager em;
 
     // id[1] -> id[30]
-    public void updatePlaces(int id, int temperature, int cloud, int wind) {
-        System.out.println("inside updatePlaces");
-        entityManager.getTransaction().begin();
-        CachePlaceParametersModel updateGothenburg = em.find(CachePlaceParametersModel.class, id);
+    public void updateScores(int id, float fishing, float outdoorSeating, float sunBathing, float volleyBall, float windSurfing) {
+        System.out.println("Update score " + id);
 
-        updateGothenburg.setTemperature(temperature);
-        updateGothenburg.setCloud(cloud);
-        updateGothenburg.setWind(wind);
+        entityManager.getTransaction().begin();
+        CacheScoresModel updateScore = em.find(CacheScoresModel.class, id);
+        updateScore.setFishing(fishing);
+        updateScore.setOutdoorSeating(outdoorSeating);
+        updateScore.setSunBathing(sunBathing);
+        updateScore.setVolleyBall(volleyBall);
+        updateScore.setWindSurfing(windSurfing);
         entityManager.getTransaction().commit();
+
     }
 }

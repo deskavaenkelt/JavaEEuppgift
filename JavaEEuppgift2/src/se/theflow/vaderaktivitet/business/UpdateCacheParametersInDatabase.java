@@ -1,8 +1,6 @@
 package se.theflow.vaderaktivitet.business;
 
-import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.repository.UpdateCachePlaceParametersRepository;
-import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
 
 import javax.inject.Inject;
 
@@ -11,29 +9,19 @@ public class UpdateCacheParametersInDatabase {
     // Inject Models
     @Inject
     private UpdateCachePlaceParametersRepository updateCachePlaceParameters;
-    //private WeatherToCacheTablesRepository weatherToCacheTablesRepository;
 
-    public void updateGoteborg() {
-        int temperature = 10;
-        int cloud = 11;
-        int wind = 12;
-
-        // Göteborg id 1-6
-        for (int i = 1; i < 7; i++) {
-            updateCachePlaceParameters.updateGoteborg(i, temperature, cloud, wind);
-            temperature++;
-            cloud++;
-            wind++;
-
-        }
+    public void dummyGoteborg(){
+        System.out.println("inside dummy Goteborg");
+        updatePlace(1,2,3,4);
     }
 
-    /*public void updateParameters(int id) {
-        weatherToCacheTablesRepository.setCachePlaceParameters(1, 0, 10, 11, 12);
-        weatherToCacheTablesRepository.findPlaceByPlaceIdAndUpdate(1,0);
+    public void updatePlace(int id, int temperature, int cloud, int wind) {
 
-        CachePlaceParametersModel cachePlaceParametersModel = weatherToCacheTablesRepository.findPlace(id);
-        cachePlaceParametersModel.getDay();
-
-    }*/
+        // Göteborg day0 = id[1] , day5 = id[6]
+        // Kungsbacka day0 = id[7] , day5 = id[12]
+        // Åsa day0 = id[13] , day5 = id[18]
+        // Varberg day0 = id[19] , day5 = id[24]
+        // Falkenberg day0 = id[25] , day5 = id[30]
+        updateCachePlaceParameters.updatePlaces(id, temperature, cloud, wind);
+    }
 }

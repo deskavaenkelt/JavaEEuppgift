@@ -1,41 +1,12 @@
 package se.theflow.vaderaktivitet.business;
 
 public class CalculateScore {
+    fishing, outdoorsEating, sunBathing, volleyboll, vindsurfning
+    public float celsiusForFishing ()
 
-    //tabell i sql cachePlaceParameters
-    //tabell i sql cacheScores
-
-
-    private int tempDifference;
-    private int vindDifference;
-    private int cloudDifference;
-    private int rainDifference;
-
-    private int tempPoint;
-    private int vindPoint;
-    private int cloudPoint;
-    private int rainPoint;
-
-    public static void main(String[] args) {
-        int tempNow = 1;
-        int vindNow = 1;
-        int cloudNow = 1;
-        int rainNow = 1;
-
-        int tempOptimal = 2;
-        int vindOptimal = 2;
-        int cloudOptimal = 2;
-        int rainOptimal = 2;
-
-        HighScoreTempVindRain(tempOptimal, tempNow);
-        HighScoreTempVindRain(vindOptimal, vindNow);
-        HighScoreTempVindRain(rainOptimal, rainNow);
-        HighScoreCloud(cloudOptimal, cloudNow);
-    }
-
-    public static int HighScoreTempVindRain(int Optimal, int Now) {
-        int Difference;
-        int Point = 0;
+    public float HighScoreTempVindRain(float Optimal, float Now) {
+        float Difference;
+        float Point = 0;
         Difference = Optimal-Now;
         if(Difference == 0) {
             Point = 15;
@@ -73,9 +44,9 @@ public class CalculateScore {
         return Point;
     }
 
-    public static int HighScoreCloud(int Optimal, int Now) {
-        int Difference;
-        int Point = 0;
+    public float HighScoreCloud(float Optimal, float Now) {
+        float Difference;
+        float Point = 0;
         Difference = Optimal-Now;
         if(Difference == 0) {
             Point = 15;
