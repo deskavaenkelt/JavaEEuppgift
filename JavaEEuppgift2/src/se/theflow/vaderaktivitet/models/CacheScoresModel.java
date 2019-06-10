@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cachescores")
-public class CacheScores {
+public class CacheScoresModel {
 
     public Integer getId() {
         return id;
@@ -23,43 +23,43 @@ public class CacheScores {
         this.place = place;
     }
 
-    public Integer getFishing() {
+    public Float getFishing() {
         return fishing;
     }
 
-    public void setFishing(Integer fishing) {
+    public void setFishing(Float fishing) {
         this.fishing = fishing;
     }
 
-    public Integer getOutdoorSeating() {
+    public Float getOutdoorSeating() {
         return outdoorSeating;
     }
 
-    public void setOutdoorSeating(Integer outdoorSeating) {
+    public void setOutdoorSeating(Float outdoorSeating) {
         this.outdoorSeating = outdoorSeating;
     }
 
-    public Integer getSunBathing() {
+    public Float getSunBathing() {
         return sunBathing;
     }
 
-    public void setSunBathing(Integer sunBathing) {
+    public void setSunBathing(Float sunBathing) {
         this.sunBathing = sunBathing;
     }
 
-    public Integer getVolleyBall() {
+    public Float getVolleyBall() {
         return volleyBall;
     }
 
-    public void setVolleyBall(Integer volleyBall) {
+    public void setVolleyBall(Float volleyBall) {
         this.volleyBall = volleyBall;
     }
 
-    public Integer getWindSurfing() {
+    public Float getWindSurfing() {
         return windSurfing;
     }
 
-    public void setWindSurfing(Integer windSurfing) {
+    public void setWindSurfing(Float windSurfing) {
         this.windSurfing = windSurfing;
     }
 
@@ -70,15 +70,14 @@ public class CacheScores {
 
     private Integer place;
 
-    private Integer fishing;
+    private Float fishing;
 
-    private Integer outdoorSeating;
+    private Float outdoorSeating;
 
-    private Integer sunBathing;
+    private Float sunBathing;
 
-    private Integer volleyBall;
+    private Float volleyBall;
 
-    private Integer windSurfing;
-
+    private Float windSurfing;
 
 }
