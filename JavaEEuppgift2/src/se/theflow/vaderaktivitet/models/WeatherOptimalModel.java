@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "weatherOptimal")
-public class WeatherOptimal {
+public class WeatherOptimalModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
