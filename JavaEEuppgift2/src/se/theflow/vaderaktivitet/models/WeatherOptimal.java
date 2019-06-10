@@ -10,12 +10,21 @@ public class WeatherOptimal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
+    private Integer activity;
     private float temperature;
     private float rainfall;
     private Integer wind;
     private Integer cloudy;
 
     /* Getter och Setters //AlexO */
+
+    public Integer getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Integer activity) {
+        this.activity = activity;
+    }
 
     public Integer getId() {
         return Id;
