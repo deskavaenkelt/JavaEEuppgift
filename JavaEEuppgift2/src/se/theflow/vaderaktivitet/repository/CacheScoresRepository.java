@@ -1,7 +1,6 @@
 package se.theflow.vaderaktivitet.repository;
 
 import se.theflow.vaderaktivitet.models.CacheScoresModel;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -28,6 +27,5 @@ public class CacheScoresRepository {
         updateScore.setVolleyBall(volleyBall);
         updateScore.setWindSurfing(windSurfing);
         entityManager.getTransaction().commit();
-
     }
 }

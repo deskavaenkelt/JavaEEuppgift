@@ -1,7 +1,6 @@
 package se.theflow.vaderaktivitet.repository;
 
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

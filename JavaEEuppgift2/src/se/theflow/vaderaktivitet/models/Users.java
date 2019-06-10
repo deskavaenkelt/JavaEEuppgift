@@ -23,7 +23,6 @@ public class Users{
     @Size(min = 8, message = "Must be att least 8 characters long")
     private String userPassword;
 
-
     /*Getters and setters*/
     public Integer getId() {
         return id;
@@ -56,7 +55,4 @@ public class Users{
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-
-
 }
-
