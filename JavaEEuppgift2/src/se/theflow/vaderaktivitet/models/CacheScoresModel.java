@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cachescores")
-public class CacheScores {
+public class CacheScoresModel {
 
     public Integer getId() {
         return id;
