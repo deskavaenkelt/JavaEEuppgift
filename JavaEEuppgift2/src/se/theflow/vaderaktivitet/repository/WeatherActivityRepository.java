@@ -15,30 +15,28 @@ public class WeatherActivityRepository {
         return query.getResultList();
     }
 
+
+    /*Get points for diffrent places AlexO*/
     public List<Place> getFishingPoints() {
-        /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by fishing");
+        Query query = em.createQuery("SELECT c.fishing, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id order by c.fishing desc");
         return query.getResultList();
     }
     public List<Place> getOutdoorSeatingPoints() {
-        /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by outdoorSeating");
+        Query query = em.createQuery("SELECT c.outdoorSeating, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id order by c.outdoorSeating desc");
         return query.getResultList();
     }
     public List<Place> getSunBathingPoints() {
-        /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by sunBathing");
+        Query query = em.createQuery("SELECT c.sunBathing, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id order by c.sunBathing desc");
         return query.getResultList();
     }
 
     public List<Place> getVolleyBallPoints() {
-        /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by volleyBall");
+        Query query = em.createQuery("SELECT c.volleyBall, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id order by c.volleyBall desc");
         return query.getResultList();
     }
     public List<Place> getWindSurfingPoints() {
-        /* Get all places Query AlexO */
-        Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by windSurfing");
+        Query query = em.createQuery("SELECT c.windSurfing, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id order by c.windSurfing desc");
         return query.getResultList();
+
     }
 }
