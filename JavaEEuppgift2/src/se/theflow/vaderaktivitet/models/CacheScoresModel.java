@@ -1,6 +1,5 @@
 package se.theflow.vaderaktivitet.models;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -79,5 +78,4 @@ public class CacheScoresModel {
     private Float volleyBall;
 
     private Float windSurfing;
-
 }

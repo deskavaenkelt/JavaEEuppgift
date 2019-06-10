@@ -7,7 +7,6 @@ import java.util.List;
 @Table(name = "activity")
 public class Activity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = aktivitetId)   - behövs ej pga samma namespace
@@ -15,10 +14,6 @@ public class Activity {
 
     //@Column(name = aktivitetNamn) - behövs ej pga samma namespace
     private String name;
-
-
-
-    /* Getter och Setters //AlexO */
 
     public Integer getId() {
         return id;
@@ -35,9 +30,4 @@ public class Activity {
     public void setName(String name) {
         this.name = name;
     }
-
-
-
-
-
 }

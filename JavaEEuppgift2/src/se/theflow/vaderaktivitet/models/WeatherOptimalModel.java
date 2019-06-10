@@ -65,6 +65,4 @@ public class WeatherOptimalModel {
     public void setCloudy(Integer cloudy) {
         this.cloudy = cloudy;
     }
-
-
 }

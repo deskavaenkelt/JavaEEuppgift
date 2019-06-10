@@ -1,7 +1,6 @@
 package se.theflow.vaderaktivitet.business;
 
 import se.theflow.vaderaktivitet.repository.UserLogin;
-
 import javax.inject.Inject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -10,7 +9,14 @@ import java.util.Random;
 public class HashPasswordGenerator {        // work in progress
 
     @Inject
-    private UserLogin userLogin;
+    private UserRepository userRepository;
+
+    public String generateASalt(String passwordToMakeHashFrom) {
+        return generateRandomSaltString(10000);
+    }
+    public String generateHachedPassword(String salt, String passwordToMakeHashFrom) {
+        return generateHashString(salt, passwordToMakeHashFrom);
+    }
 
     public String makeHashHappen(String passwordToMakeHashFrom) {
         String salt = generateRandomSaltString(10000);
@@ -23,7 +29,7 @@ public class HashPasswordGenerator {        // work in progress
     }
 
     public String checkPassword(String passwordToMakeHashFrom, int id) {
-        String salt = userLogin.findUserByUserName(id).getUserSalt();
+        String salt = userRepository.findUserByUserName(id).getUserSalt();
         String hash = generateHashString(salt, passwordToMakeHashFrom);
 
         return hash;

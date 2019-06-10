@@ -2,7 +2,6 @@
 package se.theflow.vaderaktivitet.business;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -13,73 +12,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
 public class Smhi {
 
- //       public static void main(String[] args) {
-/*
-            Scanner scan = new Scanner(System.in);
-            String formattedDate = "";
-            try {
-
-
-                System.out.println("Please choose the time you want to know the weather for: 1 = Now, 2 = sometime today, input hours from now, 3 = All of today (in hours), 4 = Every hour of the day and every upcoming day. ");
-                int whatTime = scan.nextInt();
-
-
-                switch (whatTime) {
-                    case 1:
-                        formattedDate = timeAdder(0);
-                        weatherFetcher(formattedDate, urlGenerator("varberg" +
-                                ""));
-                        weatherFetcher(formattedDate, urlGenerator("åsa"));
-                        weatherFetcher(formattedDate, urlGenerator("kungsbacka"));
-                        weatherFetcher(formattedDate, urlGenerator("gothenburg"));
-                        break;
-
-                    case 2:
-                        try {
-                            System.out.println("Please input how many hours from now you want the weather (Only Integers)");
-                            int hoursAdded = scan.nextInt();
-                            formattedDate = timeAdder(hoursAdded);
-                            weatherFetcher(formattedDate, urlGenerator("gothenburg"));
-
-                        } catch (InputMismatchException e) {
-                            System.out.println("Input was not an integer.");
-                        }
-                        break;
-
-                    case 3:
-                        LocalDateTime tempTime = LocalDateTime.now();
-                        DateTimeFormatter tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                        String tempTimeString = tempTime.format(tempFormat);
-                        for(int k = 0; k <= 24; k++){
-                            formattedDate = timeAdder(k);
-                            if(formattedDate.contains(tempTimeString)){
-                            weatherFetcher(formattedDate, urlGenerator("gothenburg"));
-                        }else {
-                                System.out.println("Finished printing");
-                                break;
-                            }}
-                        break;
-
-                    case 4:
-                        tempTime = LocalDateTime.now();
-                        tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
-                        tempTimeString = tempTime.format(tempFormat);
-
-                }
-            }catch (InputMismatchException e) {
-                System.out.println("only input integers (1, 2, 3, 4 etc).");
-            }
-
-
-
-*/
-    //}
     public float[] weatherFetcher(String currentTime, String whatUrl){
         //Assigning variables
         float weatherNow[] = new float[4];
@@ -94,8 +31,6 @@ public class Smhi {
         int loopStop = 19;
 
         try {
-
-
                 String url = whatUrl;
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -124,11 +59,7 @@ public class Smhi {
                     if(newString.indexOf(currentTime) > -1){
                         System.out.println("found it");
                         break;
-
                     }
-
-
-
                 }
             String [] arrOfStr = newString.split("unit");
 
@@ -157,15 +88,9 @@ public class Smhi {
                     System.out.println("rain obtained!");
                     break;
                 }
-
-
-
             }
 
-
             System.out.println("got out of forloop");
-
-
 
                 //Removing trash
                 currentCelsius = currentCelsius.replace("\"", "").replace(":", "").replace("{", "").replace(",", "").replace("}", "").replace("namet", "");
@@ -190,7 +115,6 @@ public class Smhi {
                 currentWindSpeed = currentWindSpeed.replace("]", "").replace("[", "");
                 avgRainChance = avgRainChance.replace("]", "").replace("[", "");
 
-
                 System.out.println("The current weather: " + currentCelsius + " Degrees celsius, with "
                         + currentCloudy + " /8ths cloud-coverage, and a windspeed of "
                         + currentWindSpeed + " m/s and an average rainfall of " + avgRainChance);
@@ -204,19 +128,13 @@ public class Smhi {
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
                 return weatherNow;
-
-
-                // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
-
-
             }
+
             catch(Exception e){
                 System.out.println(e);
             }
 
-
         return weatherNow;
-
     }
 
     public String urlGenerator (int locationId){
@@ -255,7 +173,6 @@ public class Smhi {
             String formattedDate = newTime.format(myFormatObj);
             return formattedDate;
     }
-
 }
 
 

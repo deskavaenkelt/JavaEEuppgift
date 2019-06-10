@@ -41,5 +41,4 @@ public class WeatherActivityRepository {
         Query query = em.createQuery("SELECT c FROM CacheScoresModel c order by windSurfing");
         return query.getResultList();
     }
-
 }
