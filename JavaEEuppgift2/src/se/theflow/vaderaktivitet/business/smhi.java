@@ -62,8 +62,14 @@ public class smhi {
                             weatherFetcher(formattedDate, urlGenerator("gothenburg"));
                         }else {
                                 System.out.println("Finished printing");
+                                break;
                             }}
                         break;
+
+                    case 4:
+                        tempTime = LocalDateTime.now();
+                        tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+                        tempTimeString = tempTime.format(tempFormat);
 
                 }
             }catch (InputMismatchException e) {
@@ -198,6 +204,7 @@ public class smhi {
                 weatherNow[2] = floatWindSpeed;
                 weatherNow[3] = floatRainFall;
 
+
                 // Sofia lägg till if-satser med plats för att uppdatera i mySQL!!
 
 
@@ -211,25 +218,30 @@ public class smhi {
 
     }
 
-    public static String urlGenerator (String location){
+    public static String urlGenerator (int locationId){
         String myUrl = "";
-        if(location.contains("gothenburg")){
+        //Göteborg
+        if(locationId == 1){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.85/lat/57.66/data.json";
             return myUrl;
         }
-        else if(location.contains("kungsbacka")){
+        //Kungsbacka
+        else if(locationId == 2){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.96/lat/57.49/data.json";
             return myUrl;
         }
-        else if(location.contains("åsa")){
+        //Åsa
+        else if(locationId == 3){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.07/lat/57.33/data.json";
             return myUrl;
         }
-        else if(location.contains("varberg")){
+        //Varberg
+        else if(locationId == 4){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.25/lat/57.10/data.json";
             return myUrl;
         }
-        else if(location.contains("falkenberg")){
+        //Falkenberg
+        else if(locationId == 5){
             myUrl = "http://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/12.50/lat/56.88/data.json";
             return myUrl;
         }
