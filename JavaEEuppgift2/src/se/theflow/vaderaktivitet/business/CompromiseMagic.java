@@ -10,7 +10,7 @@ public class  CompromiseMagic {
     @Inject
     WeatherOptimalBl weatheroptimalbl;
     @Inject
-    UpdateCacheScores updatecachescores;
+    CacheScoresBl cachescoresbl;
 
     public void updateAllPoints() {
         //0 = fishing, 1 = outdoorsEating, 2 = sunBathing, 3 = volleyboll, 4 = vindsurfing
@@ -36,12 +36,89 @@ public class  CompromiseMagic {
                 cloudPoints = calculatescore.HighScoreCloud(cloudOptimal, tempFloatArray[1]);
                 windPoints = calculatescore.HighScoreTempVindRain(windOptimal, tempFloatArray[2]);
                 rainPoints = calculatescore.HighScoreTempVindRain(rainOptimal, tempFloatArray[3]);
-                if(id == 1){
-                    
+                float totalScore = celPoints + cloudPoints + windPoints + rainPoints;
+                //göteborg
+                if(id == 1 && locId == 1){
+                    cachescoresbl.updateCacheFishingById(1, totalScore);
                 }
-
+                else if(id == 2 && locId == 1){
+                    cachescoresbl.updateCacheOutdoorSeatingById(1, totalScore);
+                }
+                else if (id == 3 && locId == 1){
+                    cachescoresbl.updateCacheSunBathingById(1, totalScore);
+                }
+                else if(id == 4 && locId == 1){
+                    cachescoresbl.updateCacheVolleyBallById(1, totalScore);
+                }
+                else if(id == 5 && locId == 1){
+                    cachescoresbl.updateCacheWindSurfingById(1, totalScore);
+                }
+                //Kungsbacka
+                else if(id == 1 && locId == 2){
+                    cachescoresbl.updateCacheFishingById(7, totalScore);
+                }
+                else if(id == 2 && locId == 2){
+                    cachescoresbl.updateCacheOutdoorSeatingById(7, totalScore);
+                }
+                else if (id == 3 && locId == 2){
+                    cachescoresbl.updateCacheSunBathingById(7, totalScore);
+                }
+                else if(id == 4 && locId == 2){
+                    cachescoresbl.updateCacheVolleyBallById(7, totalScore);
+                }
+                else if(id == 5 && locId == 2){
+                    cachescoresbl.updateCacheWindSurfingById(7, totalScore);
+                }
+                //åsa
+                else if(id == 1 && locId == 3){
+                    cachescoresbl.updateCacheFishingById(13, totalScore);
+                }
+                else if(id == 2 && locId == 3){
+                    cachescoresbl.updateCacheOutdoorSeatingById(13, totalScore);
+                }
+                else if (id == 3 && locId == 3){
+                    cachescoresbl.updateCacheSunBathingById(13, totalScore);
+                }
+                else if(id == 4 && locId == 3){
+                    cachescoresbl.updateCacheVolleyBallById(13, totalScore);
+                }
+                else if(id == 5 && locId == 3){
+                    cachescoresbl.updateCacheWindSurfingById(13, totalScore);
+                }
+                //Varberg
+                else if(id == 1 && locId == 4){
+                    cachescoresbl.updateCacheFishingById(19, totalScore);
+                }
+                else if(id == 2 && locId == 4){
+                    cachescoresbl.updateCacheOutdoorSeatingById(19, totalScore);
+                }
+                else if (id == 3 && locId == 4){
+                    cachescoresbl.updateCacheSunBathingById(19, totalScore);
+                }
+                else if(id == 4 && locId == 4){
+                    cachescoresbl.updateCacheVolleyBallById(19, totalScore);
+                }
+                else if(id == 5 && locId == 4){
+                    cachescoresbl.updateCacheWindSurfingById(19, totalScore);
+                }
+                //falkenberg
+                else if(id == 1 && locId == 5){
+                    cachescoresbl.updateCacheFishingById(25, totalScore);
+                }
+                else if(id == 2 && locId == 5){
+                    cachescoresbl.updateCacheOutdoorSeatingById(25, totalScore);
+                }
+                else if (id == 3 && locId == 5){
+                    cachescoresbl.updateCacheSunBathingById(25, totalScore);
+                }
+                else if(id == 4 && locId == 5){
+                    cachescoresbl.updateCacheVolleyBallById(25, totalScore);
+                }
+                else if(id == 5 && locId == 5){
+                    cachescoresbl.updateCacheWindSurfingById(25, totalScore);
+                }
             }
-            float totalScore = celPoints + cloudPoints + windPoints + rainPoints;
+
         }
     }
 }
