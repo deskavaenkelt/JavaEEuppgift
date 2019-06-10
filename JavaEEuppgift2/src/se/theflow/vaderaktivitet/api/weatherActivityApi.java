@@ -75,7 +75,6 @@ public class weatherActivityApi extends Application {
         return userRepository.getAllUsers();
     }
 
- */
 
     /*@GET
     @Path("countusers")
@@ -83,6 +82,8 @@ public class weatherActivityApi extends Application {
     public int listUsers(){
         return userRepository.countUsersInTable();
     }*/
+
+ */
 
 
 
@@ -138,7 +139,7 @@ public class weatherActivityApi extends Application {
     @Produces(MediaType.TEXT_PLAIN)
     public String runMagic() {
         System.out.println("Magic is running");
-//        compromiseMagic.updateAllPoints();
+        compromiseMagic.updateAllPoints();
         return "Happy magic!";
     }
 
