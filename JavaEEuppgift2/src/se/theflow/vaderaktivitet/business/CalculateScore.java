@@ -20,7 +20,7 @@ public class CalculateScore {
     public float HighScoreCloud(float Optimal, float Now) {
         float Difference;
         float Point = 100;
-        
+
         Difference = Optimal-Now;
 
         for(int i = 0; i < Difference; i++) {
