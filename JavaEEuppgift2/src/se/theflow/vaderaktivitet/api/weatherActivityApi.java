@@ -65,7 +65,7 @@ public class weatherActivityApi extends Application {
     public String openApi() {
         return "OPEN CONNECTION: does not require login.";
     }
-
+/*
 
     // Users
     @GET
@@ -73,6 +73,15 @@ public class weatherActivityApi extends Application {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Users> getUsers() {
         return userRepository.getAllUsers();
+    }
+
+ */
+
+    @GET
+    @Path("countusers")
+    @Produces(MediaType.APPLICATION_JSON)
+    public int listUsers(){
+        return userRepository.countUsersInTable();
     }
 
 
