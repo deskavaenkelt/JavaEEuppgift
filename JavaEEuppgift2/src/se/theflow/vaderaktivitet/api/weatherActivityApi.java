@@ -90,15 +90,7 @@ public class weatherActivityApi extends Application {
         return "OPEN CONNECTION: does not require login.";
     }
 
-    @GET
-    @Path("users/{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    // id 1-4,
-    // Return one user object
-    public String getId(@PathParam("id") int id) {
-        //return userRepository.findUserByUserName(id);
-        return userRepository.findUserByUserName(id).getUserName();
-    }
+
 
     // CachePlaceParametersModel
     @GET
@@ -168,4 +160,39 @@ public class weatherActivityApi extends Application {
     public List<Place> getWindsurfing(){
         return cr.getWindSurfingPoints();
     }
+
+
+    /*Get points for the diffrent places special day AlexO*/
+
+    @GET
+    @Path("fishing/{day}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getFishingday(@PathParam("day") int day){
+        return cr.getFishingPointsDay(day);
+    }
+    @GET
+    @Path("outdoorseating/{day}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getOutdoorday(@PathParam("day") int day){
+        return cr.getOutdoorSeatingPointsDay(day);
+    }
+    @GET
+    @Path("sunbathing/{day}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getsunbathingday(@PathParam("day") int day){
+        return cr.getSunBathingPointsday(day);
+    }
+    @GET
+    @Path("volleyball/{day}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getvolleyballday(@PathParam("day") int day){
+        return cr.getVolleyBallPointsDay(day);
+    }
+    @GET
+    @Path("windsurfing/{day}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Place> getwindsurfingday(@PathParam("day") int day){
+        return cr.getWindSurfingPointsday(day);
+    }
+
 }
