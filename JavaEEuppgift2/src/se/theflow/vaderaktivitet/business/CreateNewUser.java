@@ -10,12 +10,6 @@ import javax.persistence.PersistenceContext;
 
 public class CreateNewUser {
 
-    /*@Inject
-    UserRepository userRepository;*/
-
-    /*@Inject
-    Users users;*/
-
     @Inject
     HashPasswordGenerator hashPasswordGenerator;
 
@@ -33,11 +27,12 @@ public class CreateNewUser {
 
         entityManager.getTransaction().begin();
 
-        Users users = new Users(userName, generatedSalt,generatedHash);
+        //Users users = new Users(userName, generatedSalt,generatedHash);
+        Users users = new Users();
 
-//        users.setUserName(userName);
-//        users.setUserSalt(generatedSalt);
-//        users.setUserPassword(generatedHash);
+        users.setUserName(userName);
+        users.setUserSalt(generatedSalt);
+        users.setUserPassword(generatedHash);
 
         // Persist into DB
         entityManager.persist(users);

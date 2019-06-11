@@ -1,9 +1,11 @@
 package se.theflow.vaderaktivitet.api;
 
 import se.theflow.vaderaktivitet.business.CompromiseMagic;
+import se.theflow.vaderaktivitet.business.CreateNewUser;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
+import se.theflow.vaderaktivitet.models.Users;
 import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
@@ -12,6 +14,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
@@ -34,6 +37,28 @@ public class weatherActivityApi extends Application {
 
     @Inject
     private CompromiseMagic compromiseMagic;
+
+    @Inject
+    CreateNewUser createNewUser;
+
+
+
+    @GET
+    @Path("secured/createuser")
+
+//    public Response createNewUserAccount() {
+    public String createNewUserAccount() {
+        String userName = "user";
+        String userPassword = "password";
+
+        createNewUser.createNewUser(userName, userPassword);
+        //userRepository.createNewUser();
+
+        //return Response.ok().build();
+        return "Create user successfully";
+    }
+
+
 
     /*Get all the places info (for testing) AlexO*/
     @GET
@@ -64,27 +89,6 @@ public class weatherActivityApi extends Application {
     public String openApi() {
         return "OPEN CONNECTION: does not require login.";
     }
-/*
-
-    // Users
-    @GET
-    @Path("listusers")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Users> getUsers() {
-        return userRepository.getAllUsers();
-    }
-
-
-    /*@GET
-    @Path("countusers")
-    @Produces(MediaType.APPLICATION_JSON)
-    public int listUsers(){
-        return userRepository.countUsersInTable();
-    }*/
-
- 
-
-
 
     @GET
     @Path("users/{id}")
@@ -96,16 +100,6 @@ public class weatherActivityApi extends Application {
         return userRepository.findUserByUserName(id).getUserName();
     }
 
-
-/*
-    @POST
-    @Path("secured/createuser")
-    public Response createNewUserAccount(Users users) {
-        userRepository.createNewUser(users);
-
-        return Response.ok().build();
-    }
-*/
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")

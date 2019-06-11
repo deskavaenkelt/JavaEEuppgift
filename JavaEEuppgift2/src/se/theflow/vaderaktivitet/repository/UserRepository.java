@@ -27,11 +27,11 @@ public class UserRepository {
         return entityManager.find(Users.class, searchForId);
     }
 
-    public Users createNewUser(Users users) {
+    /*public Users createNewUser(Users users) {
         // Persist into DB
         entityManager.persist(users);
         return users;
-    }
+    }*/
 
 
     private String getUserNameById(int id) {
