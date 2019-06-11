@@ -39,4 +39,9 @@ public class WeatherActivityRepository {
         return query.getResultList();
 
     }
+    
+    public List<Place> getFishingPointsDay(int findday) {
+        Query query = em.createQuery("SELECT c.fishing, p.name FROM CacheScoresModel c JOIN Place p ON c.place = p.id where c.day = '" + findday + "' order by c.fishing desc ");
+        return query.getResultList();
+    }
 }

@@ -32,6 +32,22 @@ public class UserRepository {
         entityManager.persist(users);
         return users;
     }
+
+
+    private String getUserNameById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserName();
+    }
+    private String getUserSaltById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserSalt();
+    }
+    private String getUserHashedPasswordById(int id) {
+        Users users = entityManager.find(Users.class, id);
+        return users.getUserPassword();
+    }
+
+
 }
 
 

@@ -1,4 +1,3 @@
-
 package se.theflow.vaderaktivitet.business;
 
 import javax.inject.Inject;
