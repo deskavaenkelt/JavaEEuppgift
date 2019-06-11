@@ -173,6 +173,13 @@ public class Smhi {
             String formattedDate = newTime.format(myFormatObj);
             return formattedDate;
     }
+    public String dayAdder (int addedDays){
+        LocalDateTime tempTime = LocalDateTime.now();
+        LocalDateTime newDay = tempTime.plusDays(addedDays);
+        DateTimeFormatter tempFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String tempTimeString = newDay.format(tempFormat);
+        return tempTimeString;
+    }
 }
 
 

@@ -1,10 +1,11 @@
 package se.theflow.vaderaktivitet.api;
 
+//import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.CompromiseMagic;
-import se.theflow.vaderaktivitet.business.CreateNewUser;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
+import se.theflow.vaderaktivitet.models.Users;
 import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
@@ -13,7 +14,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationPath("/weatherActivityApi")
@@ -23,7 +23,7 @@ public class weatherActivityApi extends Application {
 
     // Inject repositorys
     @Inject
-    private WeatherActivityRepository weatherActivityRepository;
+    private WeatherActivityRepository cr;
 
     @Inject
     private UserRepository userRepository;
@@ -37,15 +37,12 @@ public class weatherActivityApi extends Application {
     @Inject
     private CompromiseMagic compromiseMagic;
 
-    @Inject
-    CreateNewUser createNewUser;
-
     /*Get all the places info (for testing) AlexO*/
     @GET
     @Path("/place")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getAllPlaces(){
-        return weatherActivityRepository.getAllPlaces();
+        return cr.getAllPlaces();
     }
 
     /*Test the API AlexO*/
@@ -87,6 +84,7 @@ public class weatherActivityApi extends Application {
         return userRepository.countUsersInTable();
     }*/
 
+ 
 
 
 
@@ -101,13 +99,15 @@ public class weatherActivityApi extends Application {
     }
 
 
-    @GET
+/*
+    @POST
     @Path("secured/createuser")
-    public Response createNewUserAccount() {
-        createNewUser.createNewUser("user", "password");
+    public Response createNewUserAccount(Users users) {
+        userRepository.createNewUser(users);
 
         return Response.ok().build();
     }
+*/
     // CachePlaceParametersModel
     @GET
     @Path("/cacheplaceparameters")
@@ -150,30 +150,30 @@ public class weatherActivityApi extends Application {
     @Path("/fishing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getFishing(){
-        return weatherActivityRepository.getFishingPoints();
+        return cr.getFishingPoints();
     }
     @GET
     @Path("/outdoorseating")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getOutdoorSeating(){
-        return weatherActivityRepository.getOutdoorSeatingPoints();
+        return cr.getOutdoorSeatingPoints();
     }
     @GET
     @Path("/sunbathing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getSunBathing(){
-        return weatherActivityRepository.getSunBathingPoints();
+        return cr.getSunBathingPoints();
     }
     @GET
     @Path("/volleyball")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getVolleyball(){
-        return weatherActivityRepository.getVolleyBallPoints();
+        return cr.getVolleyBallPoints();
     }
     @GET
     @Path("/windsurfing")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Place> getWindsurfing(){
-        return weatherActivityRepository.getWindSurfingPoints();
+        return cr.getWindSurfingPoints();
     }
 }
