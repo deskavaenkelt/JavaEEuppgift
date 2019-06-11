@@ -5,9 +5,12 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/MySqVAlDS</jta-data-source>
         <class>se.theflow.vaderaktivitet.models.Activity</class>
-        <class>se.theflow.vaderaktivitet.models.ActivityWeather</class>
         <class>se.theflow.vaderaktivitet.models.ActivityPlace</class>
+        <class>se.theflow.vaderaktivitet.models.ActivityWeather</class>
+        <class>se.theflow.vaderaktivitet.models.CachePlaceParametersModel</class>
+        <class>se.theflow.vaderaktivitet.models.CacheScoresModel</class>
         <class>se.theflow.vaderaktivitet.models.Place</class>
+        <class>se.theflow.vaderaktivitet.models.Users</class>
         <class>se.theflow.vaderaktivitet.models.WeatherOptimalModel</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
