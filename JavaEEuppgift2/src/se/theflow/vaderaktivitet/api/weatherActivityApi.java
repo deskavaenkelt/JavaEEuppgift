@@ -1,11 +1,9 @@
 package se.theflow.vaderaktivitet.api;
 
-//import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.CompromiseMagic;
 import se.theflow.vaderaktivitet.business.UpdateCacheParametersInDatabase;
 import se.theflow.vaderaktivitet.models.CachePlaceParametersModel;
 import se.theflow.vaderaktivitet.models.Place;
-import se.theflow.vaderaktivitet.models.Users;
 import se.theflow.vaderaktivitet.repository.UserRepository;
 import se.theflow.vaderaktivitet.repository.WeatherActivityRepository;
 import se.theflow.vaderaktivitet.repository.WeatherToCacheTablesRepository;
