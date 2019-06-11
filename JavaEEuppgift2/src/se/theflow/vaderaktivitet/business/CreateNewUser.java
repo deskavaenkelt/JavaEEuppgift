@@ -33,11 +33,11 @@ public class CreateNewUser {
 
         entityManager.getTransaction().begin();
 
-        Users users = new Users();
+        Users users = new Users(userName, generatedSalt,generatedHash);
 
-        users.setUserName(userName);
-        users.setUserSalt(generatedSalt);
-        users.setUserPassword(generatedHash);
+//        users.setUserName(userName);
+//        users.setUserSalt(generatedSalt);
+//        users.setUserPassword(generatedHash);
 
         // Persist into DB
         entityManager.persist(users);
