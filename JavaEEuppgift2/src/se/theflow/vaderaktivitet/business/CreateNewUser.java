@@ -13,8 +13,8 @@ public class CreateNewUser {
     /*@Inject
     UserRepository userRepository;*/
 
-    @Inject
-    Users users;
+    /*@Inject
+    Users users;*/
 
     @Inject
     HashPasswordGenerator hashPasswordGenerator;
@@ -33,11 +33,11 @@ public class CreateNewUser {
 
         entityManager.getTransaction().begin();
 
-        //users = new Users(userName, generatedSalt, generatedHash);
+        Users users = new Users(userName, generatedSalt,generatedHash);
 
-        users.setUserName(userName);
-        users.setUserSalt(generatedSalt);
-        users.setUserPassword(generatedHash);
+//        users.setUserName(userName);
+//        users.setUserSalt(generatedSalt);
+//        users.setUserPassword(generatedHash);
 
         // Persist into DB
         entityManager.persist(users);
