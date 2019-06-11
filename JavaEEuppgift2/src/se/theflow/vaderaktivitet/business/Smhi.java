@@ -1,6 +1,4 @@
-
 package se.theflow.vaderaktivitet.business;
-
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,7 +14,6 @@ import org.json.JSONObject;
 import se.theflow.vaderaktivitet.models.Place;
 
 public class Smhi {
-
     public float[] weatherFetcher(String currentTime, String whatUrl){
         //Assigning variables
         float weatherNow[] = new float[4];
@@ -136,7 +133,6 @@ public class Smhi {
 
         return weatherNow;
     }
-
     public String urlGenerator (int locationId){
         String myUrl = "";
         //Göteborg
